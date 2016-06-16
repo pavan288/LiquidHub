@@ -14,10 +14,17 @@ class SegmentedView: UIViewController, UITableViewDataSource, UITableViewDelegat
     //outlets
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var myTableView: UITableView!
+    //variables
     let searchController = UISearchController(searchResultsController: nil)
     var filteredProjects = [ProjectModel]()
     var filteredClients = [ClientModel]()
     var filteredAcc = [AcceleratorModel]()
+    
+    //container outlets
+    @IBOutlet weak var ProductContainer: UIView!
+    @IBOutlet weak var AccContainer: UIView!
+    @IBOutlet weak var ClientContainer: UIView!
+    
     
 
     //Model data
@@ -110,6 +117,31 @@ class SegmentedView: UIViewController, UITableViewDataSource, UITableViewDelegat
     }
     
     
+    @IBAction func showComponent(sender: AnyObject) {
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            ProductContainer.hidden = true
+            AccContainer.hidden = false
+            ClientContainer.hidden = false
+            break
+        case 1:
+            ProductContainer.hidden = false
+            AccContainer.hidden = true
+            ClientContainer.hidden = false
+            break
+        case 2:
+            ProductContainer.hidden = false
+            AccContainer.hidden = false
+            ClientContainer.hidden = true
+            break
+        
+        default:
+            break
+        }
+    }
+    
+    
+    
     
     //tableview implementation
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -152,12 +184,7 @@ class SegmentedView: UIViewController, UITableViewDataSource, UITableViewDelegat
         return returnValue
     }
     
-    func indexChanged(sender: AnyObject) {
-        
-        myTableView.reloadData()
-        
-        
-    }
+    
 
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -209,6 +236,26 @@ class SegmentedView: UIViewController, UITableViewDataSource, UITableViewDelegat
         return cell
         
         }
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+    {
+        switch(segmentedControl.selectedSegmentIndex){
+        case 0:
+            self.performSegueWithIdentifier("Product", sender: self)
+            break
+        case 1:
+            self.performSegueWithIdentifier("Accelerator", sender: self)
+            break
+        case 2:
+            self.performSegueWithIdentifier("Client", sender: self)
+            break
+        default:
+            break
+        }
+
+    
+        
     }
    
 
