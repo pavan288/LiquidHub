@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ComponentSectionModel{
+class ComponentModel{
     
     var componentName: String
     var componentId: Double

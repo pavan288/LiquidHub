@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ProjectSectionModel{
+class ProjectModel{
     
     var projectName: String
     var projectId: Double

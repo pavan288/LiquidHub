@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ClientSectionModel{
+class ClientModel{
     
     var clientName: String
     var clientId: Double

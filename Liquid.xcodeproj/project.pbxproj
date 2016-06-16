@@ -17,9 +17,9 @@
 		275D78921D1153EF003654E5 /* LiquidUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275D78911D1153EF003654E5 /* LiquidUITests.swift */; };
 		27E0FE7C1D1162D5001B9806 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 27E0FE7B1D1162D5001B9806 /* logo.png */; };
 		27E0FE801D116FA5001B9806 /* SegmentedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E0FE7F1D116FA5001B9806 /* SegmentedView.swift */; };
-		27E0FE821D1174FD001B9806 /* ProjectSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E0FE811D1174FD001B9806 /* ProjectSectionModel.swift */; };
-		27E0FE841D117FE3001B9806 /* ClientSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E0FE831D117FE3001B9806 /* ClientSectionModel.swift */; };
-		27E0FE861D117FF7001B9806 /* ComponentSecrtionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E0FE851D117FF7001B9806 /* ComponentSecrtionModel.swift */; };
+		27E0FE821D1174FD001B9806 /* ProjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E0FE811D1174FD001B9806 /* ProjectModel.swift */; };
+		27E0FE841D117FE3001B9806 /* ClientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E0FE831D117FE3001B9806 /* ClientModel.swift */; };
+		27E0FE861D117FF7001B9806 /* ComponentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E0FE851D117FF7001B9806 /* ComponentModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,9 +56,9 @@
 		275D78931D1153F0003654E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		27E0FE7B1D1162D5001B9806 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		27E0FE7F1D116FA5001B9806 /* SegmentedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedView.swift; sourceTree = "<group>"; };
-		27E0FE811D1174FD001B9806 /* ProjectSectionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectSectionModel.swift; sourceTree = "<group>"; };
-		27E0FE831D117FE3001B9806 /* ClientSectionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientSectionModel.swift; sourceTree = "<group>"; };
-		27E0FE851D117FF7001B9806 /* ComponentSecrtionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComponentSecrtionModel.swift; sourceTree = "<group>"; };
+		27E0FE811D1174FD001B9806 /* ProjectModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectModel.swift; sourceTree = "<group>"; };
+		27E0FE831D117FE3001B9806 /* ClientModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientModel.swift; sourceTree = "<group>"; };
+		27E0FE851D117FF7001B9806 /* ComponentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComponentModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,9 +118,9 @@
 				27E0FE7B1D1162D5001B9806 /* logo.png */,
 				275D78751D1153EA003654E5 /* Liquid.xcdatamodeld */,
 				27E0FE7F1D116FA5001B9806 /* SegmentedView.swift */,
-				27E0FE811D1174FD001B9806 /* ProjectSectionModel.swift */,
-				27E0FE831D117FE3001B9806 /* ClientSectionModel.swift */,
-				27E0FE851D117FF7001B9806 /* ComponentSecrtionModel.swift */,
+				27E0FE811D1174FD001B9806 /* ProjectModel.swift */,
+				27E0FE831D117FE3001B9806 /* ClientModel.swift */,
+				27E0FE851D117FF7001B9806 /* ComponentModel.swift */,
 			);
 			path = Liquid;
 			sourceTree = "<group>";
@@ -277,10 +277,10 @@
 			files = (
 				275D78711D1153E6003654E5 /* ViewController.swift in Sources */,
 				27E0FE801D116FA5001B9806 /* SegmentedView.swift in Sources */,
-				27E0FE861D117FF7001B9806 /* ComponentSecrtionModel.swift in Sources */,
+				27E0FE861D117FF7001B9806 /* ComponentModel.swift in Sources */,
 				275D78771D1153EB003654E5 /* Liquid.xcdatamodeld in Sources */,
-				27E0FE821D1174FD001B9806 /* ProjectSectionModel.swift in Sources */,
-				27E0FE841D117FE3001B9806 /* ClientSectionModel.swift in Sources */,
+				27E0FE821D1174FD001B9806 /* ProjectModel.swift in Sources */,
+				27E0FE841D117FE3001B9806 /* ClientModel.swift in Sources */,
 				275D786F1D1153E6003654E5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
