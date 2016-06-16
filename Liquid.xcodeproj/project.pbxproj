@@ -20,6 +20,7 @@
 		27E0FE821D1174FD001B9806 /* ProjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E0FE811D1174FD001B9806 /* ProjectModel.swift */; };
 		27E0FE841D117FE3001B9806 /* ClientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E0FE831D117FE3001B9806 /* ClientModel.swift */; };
 		27E0FE861D117FF7001B9806 /* ComponentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E0FE851D117FF7001B9806 /* ComponentModel.swift */; };
+		27E0FE881D12A146001B9806 /* AcceleratorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E0FE871D12A146001B9806 /* AcceleratorModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		27E0FE811D1174FD001B9806 /* ProjectModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectModel.swift; sourceTree = "<group>"; };
 		27E0FE831D117FE3001B9806 /* ClientModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientModel.swift; sourceTree = "<group>"; };
 		27E0FE851D117FF7001B9806 /* ComponentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComponentModel.swift; sourceTree = "<group>"; };
+		27E0FE871D12A146001B9806 /* AcceleratorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceleratorModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 				27E0FE811D1174FD001B9806 /* ProjectModel.swift */,
 				27E0FE831D117FE3001B9806 /* ClientModel.swift */,
 				27E0FE851D117FF7001B9806 /* ComponentModel.swift */,
+				27E0FE871D12A146001B9806 /* AcceleratorModel.swift */,
 			);
 			path = Liquid;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 				27E0FE821D1174FD001B9806 /* ProjectModel.swift in Sources */,
 				27E0FE841D117FE3001B9806 /* ClientModel.swift in Sources */,
 				275D786F1D1153E6003654E5 /* AppDelegate.swift in Sources */,
+				27E0FE881D12A146001B9806 /* AcceleratorModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

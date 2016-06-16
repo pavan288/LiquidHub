@@ -90,9 +90,6 @@
         <!--Title-->
         <scene sceneID="ALs-zK-kPf">
             <objects>
-                <searchDisplayController id="ZcE-yX-SNE"/>
-                <searchDisplayController id="xvX-Ud-W4S"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WfY-M3-5Nz" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="03B-8d-ReN" customClass="SegmentedView" customModule="Liquid" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nay-HT-V8N"/>
@@ -174,6 +171,9 @@
                         <outlet property="segmentedControl" destination="neR-YR-XYr" id="0d7-mo-JL0"/>
                     </connections>
                 </viewController>
+                <searchDisplayController id="ZcE-yX-SNE"/>
+                <searchDisplayController id="xvX-Ud-W4S"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WfY-M3-5Nz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="848" y="1015"/>
         </scene>

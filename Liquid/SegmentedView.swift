@@ -12,25 +12,69 @@ import UIKit
 class SegmentedView: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     //outlets
-  //  @IBOutlet weak var searchController: UISearchController!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var myTableView: UITableView!
     let searchController = UISearchController(searchResultsController: nil)
-    var filteredTableData = [String]()
+    var filteredProjects = [ProjectModel]()
+    var filteredClients = [ClientModel]()
+    var filteredAcc = [AcceleratorModel]()
     
-    //dummy value arrays
-    
-    let Projects:[String] = ["Project1","Project2","Project3","Project4"]
-    let Accelerators:[String] = ["Acc1","Acc2","Acc3","Acc4"]
-    let Clients:[String] = ["Client1","Client2","Client3","Cient4"]
 
+    //Model data
+    var projects = [ProjectModel]()
+    var accelerators = [AcceleratorModel]()
+    var clients = [ClientModel]()
+    
+  
+    
     //search across segments
     override func viewDidLoad() {
+        super.viewDidLoad()
         
+        // Setup the Search Controller
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         myTableView.tableHeaderView = searchController.searchBar
+        
+        //dummy model data
+        projects = [
+            ProjectModel(projectName:"Project1", projectId: 1),
+            ProjectModel(projectName:"Project2", projectId: 2),
+            ProjectModel(projectName:"Project1", projectId: 3),
+            ProjectModel(projectName:"Project2", projectId: 4),
+            ProjectModel(projectName:"Project1", projectId: 5),
+            ProjectModel(projectName:"Project2", projectId: 6),
+            ProjectModel(projectName:"Project1", projectId: 7),
+            ProjectModel(projectName:"Project2", projectId: 8),
+            ProjectModel(projectName:"Project1", projectId: 9)
+        ]
+        accelerators = [
+            AcceleratorModel(acceleratorName:"Acc1", acceleratorId: 1),
+            AcceleratorModel(acceleratorName:"Acc2", acceleratorId: 2),
+            AcceleratorModel(acceleratorName:"Acc1", acceleratorId: 3),
+            AcceleratorModel(acceleratorName:"Acc2", acceleratorId: 4),
+            AcceleratorModel(acceleratorName:"Acc1", acceleratorId: 5),
+            AcceleratorModel(acceleratorName:"Acc2", acceleratorId: 6),
+            AcceleratorModel(acceleratorName:"Acc1", acceleratorId: 7),
+            AcceleratorModel(acceleratorName:"Acc2", acceleratorId: 8),
+            AcceleratorModel(acceleratorName:"Acc1", acceleratorId: 9)
+        ]
+
+        clients = [
+            ClientModel(clientName:"Client1", clientId: 1),
+            ClientModel(clientName:"Client2", clientId: 2),
+            ClientModel(clientName:"Client1", clientId: 3),
+            ClientModel(clientName:"Client2", clientId: 4),
+            ClientModel(clientName:"Client1", clientId: 5),
+            ClientModel(clientName:"Client2", clientId: 6),
+            ClientModel(clientName:"Client1", clientId: 7),
+            ClientModel(clientName:"Client2", clientId: 8),
+            ClientModel(clientName:"Client1", clientId: 9)
+        ]
+
+        
+        
     }
     
     func searchDisplayController(controller: UISearchController!, shouldReloadTableForSearchString searchString: String!) -> Bool {
@@ -41,20 +85,20 @@ class SegmentedView: UIViewController, UITableViewDataSource, UITableViewDelegat
     func filterContentForSearchText(searchText: String, scope: String = "All") {
         switch(segmentedControl.selectedSegmentIndex){
         case 0:
-            filteredTableData = Projects.filter { project in
-                        return project.lowercaseString.containsString(searchText.lowercaseString)
-            }
+            filteredProjects = projects.filter({ (project: ProjectModel) -> Bool in
+                        return project.projectName.lowercaseString.containsString(searchText.lowercaseString)
+            })
             break
         case 1:
-            filteredTableData = Accelerators.filter { project in
-                return project.lowercaseString.containsString(searchText.lowercaseString)
-            }
+            filteredAcc = accelerators.filter ({ (acc: AcceleratorModel) -> Bool in
+                return acc.acceleratorName.lowercaseString.containsString(searchText.lowercaseString)
+            })
             break
         case 2:
-            filteredTableData = Clients.filter { project in
-                return project.lowercaseString.containsString(searchText.lowercaseString)
+            filteredClients = clients.filter ({ (client: ClientModel) -> Bool in
+                return client.clientName.lowercaseString.containsString(searchText.lowercaseString)
                 
-            }
+            })
             break
         default:
             break
@@ -67,33 +111,47 @@ class SegmentedView: UIViewController, UITableViewDataSource, UITableViewDelegat
     
     
     
-    //method implementation
+    //tableview implementation
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        
-        var returnValue = 0
+       var returnValue = 0
         
         
-        if (self.searchController.active) {
-            return self.filteredTableData.count
+        if (self.searchController.active && searchController.searchBar.text != "") {
+            switch(segmentedControl.selectedSegmentIndex){
+            case 0:
+                returnValue = filteredProjects.count
+                break
+            case 1:
+                returnValue = filteredAcc.count
+                break
+            case 2:
+                returnValue = filteredClients.count
+                break
+            default:
+                break
+            }
         }
         else {
         switch(segmentedControl.selectedSegmentIndex){
         case 0:
-            returnValue = Projects.count
+            returnValue = projects.count
             break
         case 1:
-            returnValue = Accelerators.count
+            returnValue = accelerators.count
             break
         case 2:
-            returnValue = Clients.count
+            returnValue = clients.count
             break
         default:
             break
         }
+            
+        }
         
         return returnValue
     }
-    }
+    
     func indexChanged(sender: AnyObject) {
         
         myTableView.reloadData()
@@ -105,20 +163,44 @@ class SegmentedView: UIViewController, UITableViewDataSource, UITableViewDelegat
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as UITableViewCell!
         
-      if (self.searchController.active) {
-            cell.textLabel?.text = filteredTableData[indexPath.row]
-            return cell
+        let project: ProjectModel
+        let acc: AcceleratorModel
+        let client: ClientModel
+        
+        
+       if searchController.active && searchController.searchBar.text != "" {
+        
+        switch(segmentedControl.selectedSegmentIndex){
+        case 0:
+            project = filteredProjects[indexPath.row]
+            cell.textLabel!.text = project.projectName
+            break
+        case 1:
+            acc = filteredAcc[indexPath.row]
+            cell.textLabel!.text = acc.acceleratorName
+            break
+        case 2:
+            client = filteredClients[indexPath.row]
+            cell.textLabel!.text = client.clientName
+            break
+        default:
+            break
         }
+        return cell
+    }
         else {
         switch(segmentedControl.selectedSegmentIndex){
         case 0:
-            cell.textLabel!.text = Projects[indexPath.row]
+            project = projects[indexPath.row]
+            cell.textLabel!.text = project.projectName
             break
         case 1:
-            cell.textLabel!.text = Accelerators[indexPath.row]
+            acc = accelerators[indexPath.row]
+            cell.textLabel!.text = acc.acceleratorName
             break
         case 2:
-            cell.textLabel!.text = Clients[indexPath.row]
+            client = clients[indexPath.row]
+            cell.textLabel!.text = client.clientName
             break
         default:
             break
@@ -126,12 +208,18 @@ class SegmentedView: UIViewController, UITableViewDataSource, UITableViewDelegat
         
         return cell
         
-    }
+        }
     }
    
 
 }
-
+/*extension SegmentedView: UISearchBarDelegate {
+    // MARK: - UISearchBar Delegate
+    func searchBar(searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        filterContentForSearchText(searchBar.text!, scope: searchBar.scopeButtonTitles![selectedScope])
+    }
+}
+*/
 extension SegmentedView: UISearchResultsUpdating {
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         filterContentForSearchText(searchController.searchBar.text!)
