@@ -37,7 +37,7 @@ class ProductTableView:UITableViewController {
         definesPresentationContext = true
         myTableView.tableHeaderView = searchController.searchBar
     }
-    
+    //tableview methods
      override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searchController.active && searchController.searchBar.text != "" {
             return filteredProjects.count
@@ -46,21 +46,22 @@ class ProductTableView:UITableViewController {
     }
     
      override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) 
+        let cell = tableView.dequeueReusableCellWithIdentifier("PCell", forIndexPath: indexPath) as! ProductCell
          var project: ProjectModel
         
         if searchController.active && searchController.searchBar.text != "" {
             project = filteredProjects[indexPath.row]
-            cell.textLabel!.text = project.projectName
+            cell.pName.text = project.projectName
         } else {
             project = projects[indexPath.row]
-            cell.textLabel!.text = project.projectName
+            cell.pName.text = project.projectName
         }
         
         
         return cell
     }
     
+    //search methods
     func searchDisplayController(controller: UISearchController!, shouldReloadTableForSearchString searchString: String!) -> Bool {
         self.filterContentForSearchText(searchString)
         return true
@@ -73,7 +74,8 @@ class ProductTableView:UITableViewController {
         
         myTableView.reloadData()
     }
-
+    
+ 
 }
 extension ProductTableView: UISearchResultsUpdating {
     func updateSearchResultsForSearchController(searchController: UISearchController) {

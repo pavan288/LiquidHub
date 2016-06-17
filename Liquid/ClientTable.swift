@@ -21,15 +21,15 @@ class ClientTableView: UITableViewController {
     
         
         clients = [
-            ClientModel(clientName:"client1", clientId: 1),
-            ClientModel(clientName:"client2", clientId: 2),
-            ClientModel(clientName:"client1", clientId: 3),
-            ClientModel(clientName:"client2", clientId: 4),
-            ClientModel(clientName:"client1", clientId: 5),
-            ClientModel(clientName:"client2", clientId: 6),
-            ClientModel(clientName:"client1", clientId: 7),
-            ClientModel(clientName:"client2", clientId: 8),
-            ClientModel(clientName:"client1", clientId: 9)
+            ClientModel(clientName:"client1", clientId: 1, clientPh: "9876543210", clientEmail: "client1@xyz.com"),
+            ClientModel(clientName:"client2", clientId: 2, clientPh: "9876543210", clientEmail: "client2@xyz.com"),
+            ClientModel(clientName:"client1", clientId: 3, clientPh: "9876543210", clientEmail: "client3@xyz.com"),
+            ClientModel(clientName:"client2", clientId: 4, clientPh: "9876543210", clientEmail: "client4@xyz.com"),
+            ClientModel(clientName:"client1", clientId: 5, clientPh: "9876543210", clientEmail: "client5@xyz.com"),
+            ClientModel(clientName:"client2", clientId: 6, clientPh: "9876543210", clientEmail: "client6@xyz.com"),
+            ClientModel(clientName:"client1", clientId: 7, clientPh: "9876543210", clientEmail: "client7@xyz.com"),
+            ClientModel(clientName:"client2", clientId: 8, clientPh: "9876543210", clientEmail: "client8@xyz.com"),
+            ClientModel(clientName:"client1", clientId: 9, clientPh: "9876543210", clientEmail: "client9@xyz.com")
         ]
         // Setup the Search Controller
         searchController.searchResultsUpdater = self
@@ -46,15 +46,15 @@ class ClientTableView: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! ClientCell
         var client: ClientModel
         
         if searchController.active && searchController.searchBar.text != "" {
             client = filteredClients[indexPath.row]
-            cell.textLabel!.text = client.clientName
+            cell.cName!.text = client.clientName
         } else {
             client = clients[indexPath.row]
-            cell.textLabel!.text = client.clientName
+            cell.cName!.text = client.clientName
         }
         
         
@@ -72,6 +72,36 @@ class ClientTableView: UITableViewController {
         
         myTableView.reloadData()
     }
+    
+    
+    @IBAction func DetailsPressed(sender: UIButton) {
+       // self.performSegueWithIdentifier("ClientDetailSegue", sender: sender)
+    }
+    
+    //segue
+   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        
+        if segue.identifier == "ClientDetailSegue" {
+            let indexPath : NSIndexPath
+            if let button = sender as? UIButton {
+                let cell = button.superview?.superview as! UITableViewCell
+                indexPath = self.tableView.indexPathForCell(cell)!
+            
+            let destination = segue.destinationViewController as? ClientDetails
+            
+        //   let selectedRow = self.myTableView.indexPathForSelectedRow!
+            var client: ClientModel
+            client = clients[indexPath.row]
+            
+            let cellName = client.clientName
+            let cellPh = client.clientPh
+            destination!.tempName = cellName
+            destination!.tempPh = cellPh
+            }
+        }
+    } 
+    
     
 }
 extension ClientTableView: UISearchResultsUpdating {

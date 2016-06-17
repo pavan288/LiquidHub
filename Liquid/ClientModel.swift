@@ -12,11 +12,14 @@ class ClientModel{
     
     var clientName: String
     var clientId: Double
-    
-    init(clientName: String, clientId: Double){
+    var clientPh: String
+    var clientEmail: String
+    init(clientName: String, clientId: Double, clientPh: String, clientEmail: String){
         
         self.clientName = clientName
         self.clientId = clientId
-    }
+        self.clientPh = clientPh
+        self.clientEmail = clientEmail
+}
     
 }

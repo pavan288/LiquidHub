@@ -46,15 +46,15 @@ class AcceleratorTableView: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! AcceleratorCell
         var accelerator: AcceleratorModel
         
         if searchController.active && searchController.searchBar.text != "" {
             accelerator = filteredAcc[indexPath.row]
-            cell.textLabel!.text = accelerator.acceleratorName
+            cell.aName!.text = accelerator.acceleratorName
         } else {
             accelerator = accelerators[indexPath.row]
-            cell.textLabel!.text = accelerator.acceleratorName
+            cell.aName!.text = accelerator.acceleratorName
         }
         
         
