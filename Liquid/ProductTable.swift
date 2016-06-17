@@ -15,6 +15,7 @@ class ProductTableView:UITableViewController {
      var projects = [ProjectModel]()
     let searchController = UISearchController(searchResultsController: nil)
     
+    @IBOutlet weak var myTableView: UITableView!
     
      override func viewDidLoad() {
         
@@ -34,18 +35,25 @@ class ProductTableView:UITableViewController {
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
-        tableView.tableHeaderView = searchController.searchBar
+        myTableView.tableHeaderView = searchController.searchBar
     }
     
      override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-         var returnValue = 0
-        returnValue = projects.count
-        return returnValue
+        if searchController.active && searchController.searchBar.text != "" {
+            return filteredProjects.count
+        }
+        return projects.count
     }
     
      override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) 
-         let project: ProjectModel
+         var project: ProjectModel
+        
+        if searchController.active && searchController.searchBar.text != "" {
+            project = filteredProjects[indexPath.row]
+        } else {
+            project = projects[indexPath.row]
+        }
         
         project = projects[indexPath.row]
         cell.textLabel!.text = project.projectName
@@ -63,13 +71,13 @@ class ProductTableView:UITableViewController {
                 return project.projectName.lowercaseString.containsString(searchText.lowercaseString)
             })
         
-        tableView.reloadData()
+        myTableView.reloadData()
     }
 
 }
 extension ProductTableView: UISearchResultsUpdating {
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         filterContentForSearchText(searchController.searchBar.text!)
-        tableView.reloadData()
+        myTableView.reloadData()
     }
 }
