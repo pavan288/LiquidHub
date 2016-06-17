@@ -16,6 +16,7 @@ class SegmentedView: UIViewController {
     @IBOutlet weak var productView: UITableView!
     @IBOutlet weak var acceleratorView: UITableView!
     @IBOutlet weak var clientView: UITableView!
+ 
     
    
     
@@ -48,4 +49,8 @@ class SegmentedView: UIViewController {
     }
     
     
+  
 }
+
+
+

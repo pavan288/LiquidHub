@@ -13,6 +13,7 @@ class ProductTableView:UITableViewController {
     
     var filteredProjects = [ProjectModel]()
      var projects = [ProjectModel]()
+    let searchController = UISearchController(searchResultsController: nil)
     
     
      override func viewDidLoad() {
@@ -28,6 +29,12 @@ class ProductTableView:UITableViewController {
             ProjectModel(projectName:"Project2", projectId: 8),
             ProjectModel(projectName:"Project1", projectId: 9)
         ]
+        
+        // Setup the Search Controller
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        definesPresentationContext = true
+        tableView.tableHeaderView = searchController.searchBar
     }
     
      override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -45,5 +52,24 @@ class ProductTableView:UITableViewController {
         
         return cell
     }
+    
+    func searchDisplayController(controller: UISearchController!, shouldReloadTableForSearchString searchString: String!) -> Bool {
+        self.filterContentForSearchText(searchString)
+        return true
+    }
+    
+    func filterContentForSearchText(searchText: String, scope: String = "All") {
+            filteredProjects = projects.filter({ (project: ProjectModel) -> Bool in
+                return project.projectName.lowercaseString.containsString(searchText.lowercaseString)
+            })
+        
+        tableView.reloadData()
     }
 
+}
+extension ProductTableView: UISearchResultsUpdating {
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text!)
+        tableView.reloadData()
+    }
+}
