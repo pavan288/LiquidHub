@@ -11,9 +11,11 @@ import UIKit
 
 class ClientTableView: UITableViewController {
     
-    var filteredclients = [ClientModel]()
+    var filteredClients = [ClientModel]()
     var clients = [ClientModel]()
+    let searchController = UISearchController(searchResultsController: nil)
     
+    @IBOutlet weak var myTableView: UITableView!
     
     override func viewDidLoad() {
     
@@ -29,22 +31,52 @@ class ClientTableView: UITableViewController {
             ClientModel(clientName:"client2", clientId: 8),
             ClientModel(clientName:"client1", clientId: 9)
         ]
+        // Setup the Search Controller
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        definesPresentationContext = true
+        myTableView.tableHeaderView = searchController.searchBar
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        var returnValue = 0
-        returnValue = clients.count
-        return returnValue
+        if searchController.active && searchController.searchBar.text != "" {
+            return filteredClients.count
+        }
+        return clients.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
-        let client: ClientModel
+        var client: ClientModel
         
-        client = clients[indexPath.row]
-        cell.textLabel!.text = client.clientName
+        if searchController.active && searchController.searchBar.text != "" {
+            client = filteredClients[indexPath.row]
+            cell.textLabel!.text = client.clientName
+        } else {
+            client = clients[indexPath.row]
+            cell.textLabel!.text = client.clientName
+        }
+        
         
         return cell
     }
+    func searchDisplayController(controller: UISearchController!, shouldReloadTableForSearchString searchString: String!) -> Bool {
+        self.filterContentForSearchText(searchString)
+        return true
+    }
+    
+    func filterContentForSearchText(searchText: String, scope: String = "All") {
+        filteredClients = clients.filter({ (client: ClientModel) -> Bool in
+            return client.clientName.lowercaseString.containsString(searchText.lowercaseString)
+        })
+        
+        myTableView.reloadData()
+    }
+    
 }
-
+extension ClientTableView: UISearchResultsUpdating {
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text!)
+        myTableView.reloadData()
+    }
+}

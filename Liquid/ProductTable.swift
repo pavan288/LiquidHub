@@ -51,12 +51,12 @@ class ProductTableView:UITableViewController {
         
         if searchController.active && searchController.searchBar.text != "" {
             project = filteredProjects[indexPath.row]
+            cell.textLabel!.text = project.projectName
         } else {
             project = projects[indexPath.row]
+            cell.textLabel!.text = project.projectName
         }
         
-        project = projects[indexPath.row]
-        cell.textLabel!.text = project.projectName
         
         return cell
     }

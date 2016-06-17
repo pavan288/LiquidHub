@@ -209,6 +209,9 @@
                         </connections>
                     </tableView>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="myTableView" destination="ZCz-0W-E6g" id="RWt-BU-MYx"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mdC-K4-8zb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -270,6 +273,9 @@
                         </connections>
                     </tableView>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="myTableView" destination="KSJ-c9-RvM" id="Qmd-sd-bHa"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="edM-nb-0ET" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

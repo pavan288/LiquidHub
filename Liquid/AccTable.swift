@@ -13,7 +13,9 @@ class AcceleratorTableView: UITableViewController {
     
     var filteredAcc = [AcceleratorModel]()
     var accelerators = [AcceleratorModel]()
+    let searchController = UISearchController(searchResultsController: nil)
     
+    @IBOutlet weak var myTableView: UITableView!
     
      override func viewDidLoad() {
         
@@ -28,22 +30,54 @@ class AcceleratorTableView: UITableViewController {
             AcceleratorModel(acceleratorName:"Acc2", acceleratorId: 8),
             AcceleratorModel(acceleratorName:"Acc1", acceleratorId: 9)
         ]
-    }
-    
-     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        var returnValue = 0
-        returnValue = accelerators.count
-        return returnValue
-    }
-    
-     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
-        let accelerator: AcceleratorModel
         
-        accelerator = accelerators[indexPath.row]
-        cell.textLabel!.text = accelerator.acceleratorName
+        // Setup the Search Controller
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        definesPresentationContext = true
+        myTableView.tableHeaderView = searchController.searchBar
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if searchController.active && searchController.searchBar.text != "" {
+            return filteredAcc.count
+        }
+        return accelerators.count
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+        var accelerator: AcceleratorModel
+        
+        if searchController.active && searchController.searchBar.text != "" {
+            accelerator = filteredAcc[indexPath.row]
+            cell.textLabel!.text = accelerator.acceleratorName
+        } else {
+            accelerator = accelerators[indexPath.row]
+            cell.textLabel!.text = accelerator.acceleratorName
+        }
+        
         
         return cell
+    }
+    func searchDisplayController(controller: UISearchController!, shouldReloadTableForSearchString searchString: String!) -> Bool {
+        self.filterContentForSearchText(searchString)
+        return true
+    }
+    
+    func filterContentForSearchText(searchText: String, scope: String = "All") {
+        filteredAcc = accelerators.filter({ (accelerator: AcceleratorModel) -> Bool in
+            return accelerator.acceleratorName.lowercaseString.containsString(searchText.lowercaseString)
+        })
+        
+        myTableView.reloadData()
+    }
+    
+}
+extension AcceleratorTableView: UISearchResultsUpdating {
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text!)
+        myTableView.reloadData()
     }
 }
 
