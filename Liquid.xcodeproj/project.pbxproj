@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2748EBFD1D12EC090089949D /* ProductTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2748EBFC1D12EC080089949D /* ProductTable.swift */; };
+		2748EBFF1D12EC2F0089949D /* AccTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2748EBFE1D12EC2F0089949D /* AccTable.swift */; };
+		2748EC011D12EC460089949D /* ClientTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2748EC001D12EC460089949D /* ClientTable.swift */; };
 		275D786F1D1153E6003654E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275D786E1D1153E6003654E5 /* AppDelegate.swift */; };
 		275D78711D1153E6003654E5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275D78701D1153E6003654E5 /* ViewController.swift */; };
 		275D78741D1153E7003654E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 275D78721D1153E7003654E5 /* Main.storyboard */; };
@@ -41,6 +44,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2748EBFC1D12EC080089949D /* ProductTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductTable.swift; sourceTree = "<group>"; };
+		2748EBFE1D12EC2F0089949D /* AccTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccTable.swift; sourceTree = "<group>"; };
+		2748EC001D12EC460089949D /* ClientTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientTable.swift; sourceTree = "<group>"; };
 		275D786B1D1153E5003654E5 /* Liquid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Liquid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		275D786E1D1153E6003654E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		275D78701D1153E6003654E5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +130,9 @@
 				27E0FE831D117FE3001B9806 /* ClientModel.swift */,
 				27E0FE851D117FF7001B9806 /* ComponentModel.swift */,
 				27E0FE871D12A146001B9806 /* AcceleratorModel.swift */,
+				2748EBFC1D12EC080089949D /* ProductTable.swift */,
+				2748EBFE1D12EC2F0089949D /* AccTable.swift */,
+				2748EC001D12EC460089949D /* ClientTable.swift */,
 			);
 			path = Liquid;
 			sourceTree = "<group>";
@@ -284,7 +293,10 @@
 				275D78771D1153EB003654E5 /* Liquid.xcdatamodeld in Sources */,
 				27E0FE821D1174FD001B9806 /* ProjectModel.swift in Sources */,
 				27E0FE841D117FE3001B9806 /* ClientModel.swift in Sources */,
+				2748EBFD1D12EC090089949D /* ProductTable.swift in Sources */,
+				2748EC011D12EC460089949D /* ClientTable.swift in Sources */,
 				275D786F1D1153E6003654E5 /* AppDelegate.swift in Sources */,
+				2748EBFF1D12EC2F0089949D /* AccTable.swift in Sources */,
 				27E0FE881D12A146001B9806 /* AcceleratorModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
