@@ -14,12 +14,29 @@ class ClientModel{
     var clientId: Double
     var clientPh: String
     var clientEmail: String
-    init(clientName: String, clientId: Double, clientPh: String, clientEmail: String){
+    var LHProjMgrName: String
+    var LHProjMgrPhone: String
+    var LHProjMgrEmail: String
+    var LHClientMgrName: String
+    var LHClientMgrPhone: String
+    var LHClientMgrEmail: String
+    
+    init(clientName: String, clientId: Double, clientPh: String, clientEmail: String, LHProjMgrName: String, LHProjMgrPhone: String, LHProjMgrEmail: String, LHClientMgrName: String, LHClientMgrPhone: String, LHClientMgrEmail: String){
         
         self.clientName = clientName
         self.clientId = clientId
         self.clientPh = clientPh
         self.clientEmail = clientEmail
+        
+        self.LHProjMgrName = LHProjMgrName
+        self.LHProjMgrPhone = LHProjMgrPhone
+        self.LHProjMgrEmail = LHProjMgrEmail
+
+        self.LHClientMgrName = LHClientMgrName
+        self.LHClientMgrPhone = LHClientMgrPhone
+        self.LHClientMgrEmail = LHClientMgrEmail
+
+        
 }
     
 }

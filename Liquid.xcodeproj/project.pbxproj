@@ -22,6 +22,8 @@
 		2780756A1D14096F00E65DF8 /* ClientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278075691D14096F00E65DF8 /* ClientCell.swift */; };
 		2780756F1D140DDD00E65DF8 /* AcceleratorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2780756E1D140DDD00E65DF8 /* AcceleratorCell.swift */; };
 		278075741D14199900E65DF8 /* ClientDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278075731D14199900E65DF8 /* ClientDetails.swift */; };
+		278075781D146CA800E65DF8 /* call.png in Resources */ = {isa = PBXBuildFile; fileRef = 278075771D146CA800E65DF8 /* call.png */; };
+		2780757A1D180DD300E65DF8 /* Mail.png in Resources */ = {isa = PBXBuildFile; fileRef = 278075791D180DD200E65DF8 /* Mail.png */; };
 		27E0FE7C1D1162D5001B9806 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 27E0FE7B1D1162D5001B9806 /* logo.png */; };
 		27E0FE801D116FA5001B9806 /* SegmentedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E0FE7F1D116FA5001B9806 /* SegmentedView.swift */; };
 		27E0FE821D1174FD001B9806 /* ProjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E0FE811D1174FD001B9806 /* ProjectModel.swift */; };
@@ -44,6 +46,34 @@
 			proxyType = 1;
 			remoteGlobalIDString = 275D786A1D1153E4003654E5;
 			remoteInfo = Liquid;
+		};
+		278075821D18145800E65DF8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2780757B1D18145400E65DF8 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5BA8EC401A9D14DC00CE82E1;
+			remoteInfo = "Charts-iOS";
+		};
+		278075841D18145800E65DF8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2780757B1D18145400E65DF8 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A52C5C371BAC5CA400594CDD;
+			remoteInfo = "Charts-TV";
+		};
+		278075861D18145800E65DF8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2780757B1D18145400E65DF8 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 65B3F5BF1C7370BE000983D0;
+			remoteInfo = "Charts-OSX";
+		};
+		278075881D18145800E65DF8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2780757B1D18145400E65DF8 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06AEE7A21BDC3F8B009875AE;
+			remoteInfo = ChartsTests;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -69,6 +99,9 @@
 		278075691D14096F00E65DF8 /* ClientCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientCell.swift; sourceTree = "<group>"; };
 		2780756E1D140DDD00E65DF8 /* AcceleratorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceleratorCell.swift; sourceTree = "<group>"; };
 		278075731D14199900E65DF8 /* ClientDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientDetails.swift; sourceTree = "<group>"; };
+		278075771D146CA800E65DF8 /* call.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = call.png; sourceTree = "<group>"; };
+		278075791D180DD200E65DF8 /* Mail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Mail.png; sourceTree = "<group>"; };
+		2780757B1D18145400E65DF8 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = Liquid/Charts/Charts.xcodeproj; sourceTree = "<group>"; };
 		27E0FE7B1D1162D5001B9806 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		27E0FE7F1D116FA5001B9806 /* SegmentedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedView.swift; sourceTree = "<group>"; };
 		27E0FE811D1174FD001B9806 /* ProjectModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectModel.swift; sourceTree = "<group>"; };
@@ -109,6 +142,7 @@
 				275D78851D1153ED003654E5 /* LiquidTests */,
 				275D78901D1153EF003654E5 /* LiquidUITests */,
 				275D786C1D1153E5003654E5 /* Products */,
+				2780757B1D18145400E65DF8 /* Charts.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -126,6 +160,8 @@
 			isa = PBXGroup;
 			children = (
 				275D786E1D1153E6003654E5 /* AppDelegate.swift */,
+				278075771D146CA800E65DF8 /* call.png */,
+				278075791D180DD200E65DF8 /* Mail.png */,
 				275D78701D1153E6003654E5 /* ViewController.swift */,
 				275D78721D1153E7003654E5 /* Main.storyboard */,
 				275D78781D1153EB003654E5 /* Assets.xcassets */,
@@ -197,6 +233,17 @@
 				278075731D14199900E65DF8 /* ClientDetails.swift */,
 			);
 			name = DetailedViiews;
+			sourceTree = "<group>";
+		};
+		2780757C1D18145400E65DF8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				278075831D18145800E65DF8 /* Charts.framework */,
+				278075851D18145800E65DF8 /* Charts.framework */,
+				278075871D18145800E65DF8 /* Charts.framework */,
+				278075891D18145800E65DF8 /* ChartsTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,6 +336,12 @@
 			mainGroup = 275D78621D1153E2003654E5;
 			productRefGroup = 275D786C1D1153E5003654E5 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 2780757C1D18145400E65DF8 /* Products */;
+					ProjectRef = 2780757B1D18145400E65DF8 /* Charts.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				275D786A1D1153E4003654E5 /* Liquid */,
@@ -298,12 +351,45 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		278075831D18145800E65DF8 /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 278075821D18145800E65DF8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		278075851D18145800E65DF8 /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 278075841D18145800E65DF8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		278075871D18145800E65DF8 /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 278075861D18145800E65DF8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		278075891D18145800E65DF8 /* ChartsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ChartsTests.xctest;
+			remoteRef = 278075881D18145800E65DF8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		275D78691D1153E4003654E5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2780757A1D180DD300E65DF8 /* Mail.png in Resources */,
 				27E0FE7C1D1162D5001B9806 /* logo.png in Resources */,
+				278075781D146CA800E65DF8 /* call.png in Resources */,
 				275D787C1D1153EB003654E5 /* LaunchScreen.storyboard in Resources */,
 				275D78791D1153EB003654E5 /* Assets.xcassets in Resources */,
 				275D78741D1153E7003654E5 /* Main.storyboard in Resources */,

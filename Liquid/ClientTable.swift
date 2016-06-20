@@ -21,15 +21,15 @@ class ClientTableView: UITableViewController {
     
         
         clients = [
-            ClientModel(clientName:"client1", clientId: 1, clientPh: "9876543210", clientEmail: "client1@xyz.com"),
-            ClientModel(clientName:"client2", clientId: 2, clientPh: "9876543210", clientEmail: "client2@xyz.com"),
-            ClientModel(clientName:"client1", clientId: 3, clientPh: "9876543210", clientEmail: "client3@xyz.com"),
-            ClientModel(clientName:"client2", clientId: 4, clientPh: "9876543210", clientEmail: "client4@xyz.com"),
-            ClientModel(clientName:"client1", clientId: 5, clientPh: "9876543210", clientEmail: "client5@xyz.com"),
-            ClientModel(clientName:"client2", clientId: 6, clientPh: "9876543210", clientEmail: "client6@xyz.com"),
-            ClientModel(clientName:"client1", clientId: 7, clientPh: "9876543210", clientEmail: "client7@xyz.com"),
-            ClientModel(clientName:"client2", clientId: 8, clientPh: "9876543210", clientEmail: "client8@xyz.com"),
-            ClientModel(clientName:"client1", clientId: 9, clientPh: "9876543210", clientEmail: "client9@xyz.com")
+            ClientModel(clientName:"client1", clientId: 1, clientPh: "9876543210", clientEmail: "client1@xyz.com", LHProjMgrName: "LHProjectMgr1", LHProjMgrPhone: "9876543210", LHProjMgrEmail: "lhprojmgr1@xyz.com", LHClientMgrName: "LHClientMgr1", LHClientMgrPhone: "9876543210", LHClientMgrEmail: "lhclientmgr1@xyz.com"),
+            ClientModel(clientName:"client2", clientId: 2, clientPh: "9876543210", clientEmail: "client2@xyz.com", LHProjMgrName: "LHProjectMgr1", LHProjMgrPhone: "9876543210", LHProjMgrEmail: "lhprojmgr1@xyz.com", LHClientMgrName: "LHClientMgr2", LHClientMgrPhone: "9876543210", LHClientMgrEmail: "lhclientmgr2@xyz.com"),
+            ClientModel(clientName:"client1", clientId: 3, clientPh: "9876543210", clientEmail: "client3@xyz.com", LHProjMgrName: "LHProjectMgr1", LHProjMgrPhone: "9876543210", LHProjMgrEmail: "lhprojmgr1@xyz.com", LHClientMgrName: "LHClientMgr3", LHClientMgrPhone: "9876543210", LHClientMgrEmail: "lhclientmgr3@xyz.com"),
+            ClientModel(clientName:"client2", clientId: 4, clientPh: "9876543210", clientEmail: "client4@xyz.com", LHProjMgrName: "LHProjectMgr1", LHProjMgrPhone: "9876543210", LHProjMgrEmail: "lhprojmgr1@xyz.com", LHClientMgrName: "LHClientMgr4", LHClientMgrPhone: "9876543210", LHClientMgrEmail: "lhclientmgr4@xyz.com"),
+            ClientModel(clientName:"client1", clientId: 5, clientPh: "9876543210", clientEmail: "client5@xyz.com", LHProjMgrName: "LHProjectMgr1", LHProjMgrPhone: "9876543210", LHProjMgrEmail: "lhprojmgr1@xyz.com", LHClientMgrName: "LHClientMgr5", LHClientMgrPhone: "9876543210", LHClientMgrEmail: "lhclientmgr5@xyz.com"),
+            ClientModel(clientName:"client2", clientId: 6, clientPh: "9876543210", clientEmail: "client6@xyz.com", LHProjMgrName: "LHProjectMgr1", LHProjMgrPhone: "9876543210", LHProjMgrEmail: "lhprojmgr1@xyz.com", LHClientMgrName: "LHClientMgr6", LHClientMgrPhone: "9876543210", LHClientMgrEmail: "lhclientmgr6@xyz.com"),
+            ClientModel(clientName:"client1", clientId: 7, clientPh: "9876543210", clientEmail: "client7@xyz.com", LHProjMgrName: "LHProjectMgr1", LHProjMgrPhone: "9876543210", LHProjMgrEmail: "lhprojmgr1@xyz.com", LHClientMgrName: "LHClientMgr7", LHClientMgrPhone: "9876543210", LHClientMgrEmail: "lhclientmgr7@xyz.com"),
+            ClientModel(clientName:"client2", clientId: 8, clientPh: "9876543210", clientEmail: "client8@xyz.com", LHProjMgrName: "LHProjectMgr1", LHProjMgrPhone: "9876543210", LHProjMgrEmail: "lhprojmgr1@xyz.com", LHClientMgrName: "LHClientMgr8", LHClientMgrPhone: "9876543210", LHClientMgrEmail: "lhclientmgr8@xyz.com"),
+            ClientModel(clientName:"client1", clientId: 9, clientPh: "9876543210", clientEmail: "client9@xyz.com", LHProjMgrName: "LHProjectMgr1", LHProjMgrPhone: "9876543210", LHProjMgrEmail: "lhprojmgr1@xyz.com", LHClientMgrName: "LHClientMgr8", LHClientMgrPhone: "9876543210", LHClientMgrEmail: "lhclientmgr8@xyz.com")
         ]
         // Setup the Search Controller
         searchController.searchResultsUpdater = self
@@ -80,7 +80,10 @@ class ClientTableView: UITableViewController {
     
     //segue
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
+    
+    /*let backItem = UIBarButtonItem()
+    backItem.title = "Back"
+    navigationItem.backBarButtonItem = backItem */
         
         if segue.identifier == "ClientDetailSegue" {
             let indexPath : NSIndexPath
@@ -96,13 +99,34 @@ class ClientTableView: UITableViewController {
             
             let cellName = client.clientName
             let cellPh = client.clientPh
+            let cellEmail = client.clientEmail
+                
+                let projcellName = client.LHProjMgrName
+                let projcellPh = client.LHProjMgrPhone
+                let projcellEmail = client.LHProjMgrEmail
+                
+                let clientcellName = client.LHClientMgrName
+                let clientcellPh = client.LHClientMgrPhone
+                let clientcellEmail = client.LHClientMgrEmail
+            
             destination!.tempName = cellName
             destination!.tempPh = cellPh
+                destination!.tempEmail = cellEmail
+                
+                destination!.tempProjMgrName = projcellName
+                destination!.tempProjMgrPhone = projcellPh
+                destination!.tempProjMgrEmail = projcellEmail
+                
+                destination!.tempClientMgrName = clientcellName
+                destination!.tempClientMgrPhone = clientcellPh
+                destination!.tempClientMgrEmail = clientcellEmail
+                
             }
         }
     } 
     
-    
+    @IBAction func cancelToPlayersViewController(segue:UIStoryboardSegue) {
+    }
 }
 extension ClientTableView: UISearchResultsUpdating {
     func updateSearchResultsForSearchController(searchController: UISearchController) {

@@ -8,26 +8,48 @@
 
 import UIKit
 
-class ClientDetails: UIViewController {
+class ClientDetails: UITableViewController {
     
     var clients = [ClientModel]()
     var tempName: String = ""
     var tempPh: String = ""
+    var tempEmail: String = ""
+    var tempProjMgrName: String = ""
+    var tempProjMgrPhone: String = ""
+    var tempProjMgrEmail: String = ""
+    var tempClientMgrName: String = ""
+    var tempClientMgrPhone: String = ""
+    var tempClientMgrEmail: String = ""
     
-    @IBOutlet weak var phone: UILabel!
-    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var clientName: UILabel!
+    @IBOutlet weak var clientPhone: UILabel!
+    @IBOutlet weak var clientEmail: UILabel!
+    @IBOutlet weak var projectMgrName: UILabel!
+    @IBOutlet weak var projectMgrPhone: UILabel!
+    @IBOutlet weak var projectMgrEmail: UILabel!
+    @IBOutlet weak var clientMgrName: UILabel!
+    @IBOutlet weak var clientMgrPhone: UILabel!
+    @IBOutlet weak var clientMgrEmail: UILabel!
+    
     
     override func viewDidLoad() {
-        name.text = tempName
-        phone.text = tempPh
+        clientName.text = tempName
+        clientPhone.text = tempPh
+        clientEmail.text = tempEmail
         
-       
+        projectMgrName.text = tempProjMgrName
+        projectMgrPhone.text = tempProjMgrPhone
+        projectMgrEmail.text = tempProjMgrEmail
         
+        clientMgrName.text = tempClientMgrName
+        clientMgrPhone.text = tempClientMgrPhone
+        clientMgrEmail.text = tempClientMgrEmail
+        
+        
+
     }
+
     
-    @IBAction func Back(sender: AnyObject) {
-        
-    }
-    
+
     
 }
