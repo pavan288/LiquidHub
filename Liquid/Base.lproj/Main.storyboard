@@ -274,7 +274,7 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aPZ-Fn-UCA">
                                             <rect key="frame" x="251" y="7" width="46" height="30"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="46" id="zBM-l1-uFV"/>
+                                                <constraint firstAttribute="width" constant="46" id="Wrr-Ig-iVm"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                             <state key="normal" title="Details">
@@ -287,13 +287,13 @@
                                         </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="O72-WD-BbX" firstAttribute="top" secondItem="lfI-hX-kbD" secondAttribute="topMargin" constant="3" id="36l-pF-uIB"/>
-                                        <constraint firstItem="O72-WD-BbX" firstAttribute="leading" secondItem="lfI-hX-kbD" secondAttribute="leadingMargin" constant="6" id="H9w-Vs-0ae"/>
-                                        <constraint firstItem="O72-WD-BbX" firstAttribute="centerY" secondItem="lfI-hX-kbD" secondAttribute="centerY" id="S67-ib-vxX"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="O72-WD-BbX" secondAttribute="trailing" constant="58" id="ciT-cc-7gg"/>
-                                        <constraint firstItem="aPZ-Fn-UCA" firstAttribute="top" secondItem="lfI-hX-kbD" secondAttribute="topMargin" constant="-1" id="dNH-Pg-6YW"/>
-                                        <constraint firstItem="O72-WD-BbX" firstAttribute="centerY" secondItem="aPZ-Fn-UCA" secondAttribute="centerY" id="ugg-8T-CTJ"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="aPZ-Fn-UCA" secondAttribute="trailing" constant="15" id="zcT-p5-qTZ"/>
+                                        <constraint firstItem="aPZ-Fn-UCA" firstAttribute="centerY" secondItem="O72-WD-BbX" secondAttribute="centerY" id="9aD-6C-QZ0"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="aPZ-Fn-UCA" secondAttribute="trailing" constant="15" id="Ic6-m9-5yt"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="O72-WD-BbX" secondAttribute="trailing" constant="58" id="RED-lO-msX"/>
+                                        <constraint firstItem="aPZ-Fn-UCA" firstAttribute="top" secondItem="lfI-hX-kbD" secondAttribute="topMargin" constant="-1" id="StH-DE-Sab"/>
+                                        <constraint firstItem="O72-WD-BbX" firstAttribute="leading" secondItem="lfI-hX-kbD" secondAttribute="leadingMargin" constant="6" id="URi-Tf-xyR"/>
+                                        <constraint firstItem="O72-WD-BbX" firstAttribute="top" secondItem="lfI-hX-kbD" secondAttribute="topMargin" constant="3" id="asT-wZ-vc6"/>
+                                        <constraint firstItem="O72-WD-BbX" firstAttribute="centerY" secondItem="lfI-hX-kbD" secondAttribute="centerY" id="eW2-c7-Ght"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>

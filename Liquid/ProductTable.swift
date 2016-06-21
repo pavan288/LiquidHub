@@ -103,17 +103,15 @@ class ProductTableView:UITableViewController {
         let item = self.cells.items[indexPath.row]
         let value = item.value as? String
         
-        if let cell = tableView.dequeueReusableCellWithIdentifier("PCell") {
-            cell.textLabel?.text = value
+         let cell = tableView.dequeueReusableCellWithIdentifier("PCell") as! ProductCell
+            cell.pName?.text = value
             
             if item as? SwiftyAccordionCells.HeaderItem != nil {
                 cell.backgroundColor = UIColor.whiteColor()
             }
             
             return cell
-        }
         
-        return UITableViewCell()
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -153,15 +151,6 @@ class ProductTableView:UITableViewController {
             self.myTableView.beginUpdates()
             self.myTableView.endUpdates()
             
-        } else {
-            if indexPath.row != self.selectedItemIndex {
-                if let selectedItemIndex = self.selectedItemIndex {
-                    let previousCell = self.myTableView.cellForRowAtIndexPath(NSIndexPath(forRow: selectedItemIndex, inSection: 0))
-                    previousCell?.accessoryType = UITableViewCellAccessoryType.None
-                }
-                
-                self.selectedItemIndex = indexPath.row
-            }
         }
     }
     
