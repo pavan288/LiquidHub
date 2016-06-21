@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ProductTableView:UITableViewController {
+class CategoryTableView:UITableViewController {
     
     var filteredProjects = [ProjectModel]()
      var projects = [ProjectModel]()
@@ -244,7 +244,7 @@ class ProductTableView:UITableViewController {
 
  
 }
-extension ProductTableView: UISearchResultsUpdating {
+extension CategoryTableView: UISearchResultsUpdating {
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         filterContentForSearchText(searchController.searchBar.text!)
         myTableView.reloadData()
