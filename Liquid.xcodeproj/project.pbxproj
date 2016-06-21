@@ -27,6 +27,7 @@
 		2780758E1D1816E300E65DF8 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 278075831D18145800E65DF8 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		278075931D1817C400E65DF8 /* ProjectDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278075921D1817C400E65DF8 /* ProjectDetails.swift */; };
 		278075951D1924DC00E65DF8 /* SwiftyAccordionCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278075941D1924DC00E65DF8 /* SwiftyAccordionCells.swift */; };
+		278075971D1946E900E65DF8 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278075961D1946E900E65DF8 /* CategoryCell.swift */; };
 		27E0FE7C1D1162D5001B9806 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 27E0FE7B1D1162D5001B9806 /* logo.png */; };
 		27E0FE801D116FA5001B9806 /* SegmentedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E0FE7F1D116FA5001B9806 /* SegmentedView.swift */; };
 		27E0FE821D1174FD001B9806 /* ProjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E0FE811D1174FD001B9806 /* ProjectModel.swift */; };
@@ -127,6 +128,7 @@
 		2780757B1D18145400E65DF8 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = Liquid/Charts/Charts.xcodeproj; sourceTree = "<group>"; };
 		278075921D1817C400E65DF8 /* ProjectDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectDetails.swift; sourceTree = "<group>"; };
 		278075941D1924DC00E65DF8 /* SwiftyAccordionCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyAccordionCells.swift; sourceTree = "<group>"; };
+		278075961D1946E900E65DF8 /* CategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		27E0FE7B1D1162D5001B9806 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		27E0FE7F1D116FA5001B9806 /* SegmentedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedView.swift; sourceTree = "<group>"; };
 		27E0FE811D1174FD001B9806 /* ProjectModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectModel.swift; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 				278075671D14029C00E65DF8 /* ProductCell.swift */,
 				278075691D14096F00E65DF8 /* ClientCell.swift */,
 				2780756E1D140DDD00E65DF8 /* AcceleratorCell.swift */,
+				278075961D1946E900E65DF8 /* CategoryCell.swift */,
 			);
 			name = TableCells;
 			sourceTree = "<group>";
@@ -450,6 +453,7 @@
 				27E0FE861D117FF7001B9806 /* ComponentModel.swift in Sources */,
 				275D78771D1153EB003654E5 /* Liquid.xcdatamodeld in Sources */,
 				27E0FE821D1174FD001B9806 /* ProjectModel.swift in Sources */,
+				278075971D1946E900E65DF8 /* CategoryCell.swift in Sources */,
 				278075951D1924DC00E65DF8 /* SwiftyAccordionCells.swift in Sources */,
 				27E0FE841D117FE3001B9806 /* ClientModel.swift in Sources */,
 				2748EBFD1D12EC090089949D /* ProductTable.swift in Sources */,

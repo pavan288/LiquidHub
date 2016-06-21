@@ -15,6 +15,7 @@ class ProductTableView:UITableViewController {
      var projects = [ProjectModel]()
     let searchController = UISearchController(searchResultsController: nil)
      let cells = SwiftyAccordionCells()
+    var selectedIndexPath : NSIndexPath?
     
     var previouslySelectedHeaderIndex: Int?
     var selectedHeaderIndex: Int?
@@ -22,9 +23,11 @@ class ProductTableView:UITableViewController {
     
     @IBOutlet weak var myTableView: UITableView!
     
+    var Categories = ["Assets & Wealth Managaement","Banking","Commercial","Healthcare","Life Sciences","Insurance"]
+    
      override func viewDidLoad() {
         //setup accordion table
-        self.setup()
+    //    self.setup()
         
         projects = [
             ProjectModel(projectName:"Project1", projectId: 1),
@@ -38,13 +41,74 @@ class ProductTableView:UITableViewController {
             ProjectModel(projectName:"Project1", projectId: 9)
         ]
         
+        
+        
         // Setup the Search Controller
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         myTableView.tableHeaderView = searchController.searchBar
     }
-  /*    //tableview methods
+    
+    //custom expandables
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if searchController.active && searchController.searchBar.text != "" {
+            return filteredProjects.count
+        }
+        return Categories.count
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("Category", forIndexPath: indexPath) as! CategoryCell
+        cell.textLabel!.text = Categories[indexPath.row]
+        return cell
+    }
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let previousIndexPath = selectedIndexPath
+        if indexPath == selectedIndexPath {
+            selectedIndexPath = nil
+        } else {
+            selectedIndexPath = indexPath
+        }
+        
+        var indexPaths : Array<NSIndexPath> = []
+        if let previous = previousIndexPath {
+            indexPaths += [previous]
+        }
+        if let current = selectedIndexPath {
+            indexPaths += [current]
+        }
+        if indexPaths.count > 0 {
+            tableView.reloadRowsAtIndexPaths(indexPaths, withRowAnimation: UITableViewRowAnimation.Automatic)
+        }
+    }
+    
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        (cell as! CategoryCell).watchFrameChanges()
+    }
+    
+    override func tableView(tableView: UITableView, didEndDisplayingCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        (cell as! CategoryCell).ignoreFrameChanges()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        for cell in tableView.visibleCells as! [CategoryCell] {
+            cell.ignoreFrameChanges()
+        }
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if indexPath == selectedIndexPath {
+            return CategoryCell.expandedHeight
+        } else {
+            return CategoryCell.defaultHeight
+        }
+    }
+
+    
+    
+ /*     //tableview methods
      override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searchController.active && searchController.searchBar.text != "" {
             return filteredProjects.count
@@ -67,7 +131,7 @@ class ProductTableView:UITableViewController {
         
         return cell
     }
-    */
+ 
     
   //setup the table items
     func setup() {
@@ -153,6 +217,12 @@ class ProductTableView:UITableViewController {
             
         }
     }
+ */
+    
+    
+    
+    
+    
     
     
     
