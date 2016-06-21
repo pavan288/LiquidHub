@@ -265,7 +265,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O72-WD-BbX">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O72-WD-BbX">
                                             <rect key="frame" x="14" y="11" width="240" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -282,15 +282,17 @@
                                             </state>
                                             <connections>
                                                 <action selector="pDetails:" destination="h14-jg-1mu" eventType="touchUpInside" id="FOh-Q0-4B1"/>
+                                                <segue destination="rdl-Ft-nfV" kind="show" id="HXY-yY-L3w"/>
                                             </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="O72-WD-BbX" firstAttribute="centerY" secondItem="lfI-hX-kbD" secondAttribute="centerY" id="7Uy-ta-pgJ"/>
-                                        <constraint firstItem="O72-WD-BbX" firstAttribute="leading" secondItem="lfI-hX-kbD" secondAttribute="leadingMargin" constant="6" id="EmN-gK-e5B"/>
-                                        <constraint firstItem="O72-WD-BbX" firstAttribute="centerY" secondItem="aPZ-Fn-UCA" secondAttribute="centerY" id="cve-AJ-0wi"/>
+                                        <constraint firstItem="O72-WD-BbX" firstAttribute="top" secondItem="lfI-hX-kbD" secondAttribute="topMargin" constant="3" id="36l-pF-uIB"/>
+                                        <constraint firstItem="O72-WD-BbX" firstAttribute="leading" secondItem="lfI-hX-kbD" secondAttribute="leadingMargin" constant="6" id="H9w-Vs-0ae"/>
+                                        <constraint firstItem="O72-WD-BbX" firstAttribute="centerY" secondItem="lfI-hX-kbD" secondAttribute="centerY" id="S67-ib-vxX"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="O72-WD-BbX" secondAttribute="trailing" constant="58" id="ciT-cc-7gg"/>
                                         <constraint firstItem="aPZ-Fn-UCA" firstAttribute="top" secondItem="lfI-hX-kbD" secondAttribute="topMargin" constant="-1" id="dNH-Pg-6YW"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="O72-WD-BbX" secondAttribute="trailing" constant="58" id="efo-Ju-KVT"/>
+                                        <constraint firstItem="O72-WD-BbX" firstAttribute="centerY" secondItem="aPZ-Fn-UCA" secondAttribute="centerY" id="ugg-8T-CTJ"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="aPZ-Fn-UCA" secondAttribute="trailing" constant="15" id="zcT-p5-qTZ"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -312,6 +314,70 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Guu-Ys-IR1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1409" y="381"/>
+        </scene>
+        <!--Project Details-->
+        <scene sceneID="WcQ-Dd-PjT">
+            <objects>
+                <viewController id="rdl-Ft-nfV" customClass="ProjectDetails" customModule="Liquid" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3EH-Gb-ZRr"/>
+                        <viewControllerLayoutGuide type="bottom" id="Bhg-eO-GVR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="m0B-Hm-Hc2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="22y-SY-wAc">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Components of this Project" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QGW-H6-LqM">
+                                        <rect key="frame" x="8" y="56" width="304" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qMo-gn-xPT">
+                                        <rect key="frame" x="8" y="8" width="46" height="30"/>
+                                        <state key="normal" title="Back"/>
+                                        <connections>
+                                            <segue destination="m4n-Mu-7ec" kind="unwind" unwindAction="cancelToTableView:" id="gxS-L9-edb"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fFY-7u-I5W" customClass="PieChartView" customModule="Charts">
+                                        <rect key="frame" x="8" y="85" width="304" height="304"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="fFY-7u-I5W" firstAttribute="trailing" secondItem="22y-SY-wAc" secondAttribute="trailingMargin" id="1F8-ti-QfE"/>
+                                    <constraint firstItem="fFY-7u-I5W" firstAttribute="leading" secondItem="22y-SY-wAc" secondAttribute="leadingMargin" id="1dN-1z-yYy"/>
+                                    <constraint firstItem="fFY-7u-I5W" firstAttribute="top" secondItem="QGW-H6-LqM" secondAttribute="bottom" constant="8" symbolic="YES" id="8sD-VJ-bzc"/>
+                                    <constraint firstItem="QGW-H6-LqM" firstAttribute="trailing" secondItem="fFY-7u-I5W" secondAttribute="trailing" id="CfS-a3-os1"/>
+                                    <constraint firstItem="fFY-7u-I5W" firstAttribute="top" secondItem="22y-SY-wAc" secondAttribute="top" constant="85" id="N53-RG-Jqa"/>
+                                    <constraint firstItem="QGW-H6-LqM" firstAttribute="leading" secondItem="fFY-7u-I5W" secondAttribute="leading" id="SP1-pq-5CW"/>
+                                    <constraint firstAttribute="bottom" secondItem="fFY-7u-I5W" secondAttribute="bottom" constant="179" id="pM8-w8-RCI"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="22y-SY-wAc" secondAttribute="trailing" id="2x9-gQ-Don"/>
+                            <constraint firstItem="22y-SY-wAc" firstAttribute="top" secondItem="3EH-Gb-ZRr" secondAttribute="bottom" id="QnF-Cl-ygy"/>
+                            <constraint firstItem="22y-SY-wAc" firstAttribute="leading" secondItem="m0B-Hm-Hc2" secondAttribute="leading" id="p6O-QG-9Qi"/>
+                            <constraint firstItem="22y-SY-wAc" firstAttribute="bottom" secondItem="Bhg-eO-GVR" secondAttribute="top" id="u7D-LE-vk0"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="pieChartView" destination="fFY-7u-I5W" id="5sP-gw-mDz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Gh-zf-k6z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="m4n-Mu-7ec" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1835" y="381"/>
         </scene>
         <!--Client Table View-->
         <scene sceneID="h5I-jZ-oR6">
@@ -378,7 +444,7 @@
             </objects>
             <point key="canvasLocation" x="1383" y="1841"/>
         </scene>
-        <!--LiquidHub-->
+        <!--Client Details-->
         <scene sceneID="ujx-gi-2i6">
             <objects>
                 <tableViewController id="Xgf-4h-Cef" customClass="ClientDetails" customModule="Liquid" customModuleProvider="target" sceneMemberID="viewController">
@@ -401,7 +467,7 @@
                                         <color key="tintColor" red="0.9999127984046936" green="1" blue="0.99988144636154175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <action selector="goBack" destination="gO6-qb-hWX" id="Ylq-gl-8Og"/>
-                                            <segue destination="HTO-o3-Jkc" kind="unwind" unwindAction="cancelToPlayersViewController:" id="L0D-pm-PaP"/>
+                                            <segue destination="HTO-o3-Jkc" kind="unwind" unwindAction="cancelToClientTableView:" id="dxa-Bx-N4M"/>
                                         </connections>
                                     </barButtonItem>
                                 </navigationItem>
@@ -480,17 +546,10 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Mail.png" translatesAutoresizingMaskIntoConstraints="NO" id="OUD-dn-tT4">
-                                                    <rect key="frame" x="269" y="0.0" width="43" height="43"/>
-                                                </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="OUD-dn-tT4" firstAttribute="centerY" secondItem="twr-7b-ryw" secondAttribute="centerY" id="737-zG-41i"/>
-                                                <constraint firstItem="OUD-dn-tT4" firstAttribute="top" secondItem="1gv-SU-eeR" secondAttribute="top" id="A1c-Ly-OLR"/>
                                                 <constraint firstItem="twr-7b-ryw" firstAttribute="leading" secondItem="1gv-SU-eeR" secondAttribute="leadingMargin" id="CGv-3Z-EhD"/>
                                                 <constraint firstItem="twr-7b-ryw" firstAttribute="centerY" secondItem="1gv-SU-eeR" secondAttribute="centerY" id="f1f-ea-xEi"/>
-                                                <constraint firstItem="OUD-dn-tT4" firstAttribute="leading" secondItem="twr-7b-ryw" secondAttribute="trailing" constant="88" id="mD3-Zm-CjW"/>
-                                                <constraint firstItem="OUD-dn-tT4" firstAttribute="trailing" secondItem="1gv-SU-eeR" secondAttribute="trailingMargin" id="nSq-aY-Tsq"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -567,17 +626,10 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Mail.png" translatesAutoresizingMaskIntoConstraints="NO" id="pN8-dn-581">
-                                                    <rect key="frame" x="269" y="0.0" width="43" height="43"/>
-                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="tfd-cu-cW5" firstAttribute="centerY" secondItem="4QS-jm-ZAy" secondAttribute="centerY" id="6LS-vN-rDn"/>
-                                                <constraint firstItem="pN8-dn-581" firstAttribute="centerY" secondItem="tfd-cu-cW5" secondAttribute="centerY" id="KxK-I9-Wc2"/>
                                                 <constraint firstItem="tfd-cu-cW5" firstAttribute="leading" secondItem="4QS-jm-ZAy" secondAttribute="leadingMargin" id="MR7-sm-JMO"/>
-                                                <constraint firstItem="pN8-dn-581" firstAttribute="trailing" secondItem="4QS-jm-ZAy" secondAttribute="trailingMargin" id="SM6-av-zzm"/>
-                                                <constraint firstItem="pN8-dn-581" firstAttribute="top" secondItem="4QS-jm-ZAy" secondAttribute="top" id="k0C-c3-RFB"/>
-                                                <constraint firstItem="pN8-dn-581" firstAttribute="leading" secondItem="tfd-cu-cW5" secondAttribute="trailing" constant="88" id="rvb-8c-ukv"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -654,15 +706,8 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Mail.png" translatesAutoresizingMaskIntoConstraints="NO" id="s6z-a7-pRO">
-                                                    <rect key="frame" x="269" y="0.0" width="43" height="43"/>
-                                                </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="YxA-co-DW6" firstAttribute="centerY" secondItem="s6z-a7-pRO" secondAttribute="centerY" id="51Z-WW-YuO"/>
-                                                <constraint firstItem="s6z-a7-pRO" firstAttribute="top" secondItem="vU0-Zi-034" secondAttribute="top" id="5xj-Qa-JCD"/>
-                                                <constraint firstItem="s6z-a7-pRO" firstAttribute="leading" secondItem="YxA-co-DW6" secondAttribute="trailing" constant="88" id="GsW-HZ-VZ1"/>
-                                                <constraint firstItem="s6z-a7-pRO" firstAttribute="trailing" secondItem="vU0-Zi-034" secondAttribute="trailingMargin" id="gYT-it-zOa"/>
                                                 <constraint firstItem="YxA-co-DW6" firstAttribute="centerY" secondItem="vU0-Zi-034" secondAttribute="centerY" id="kAy-Vs-AOT"/>
                                                 <constraint firstItem="YxA-co-DW6" firstAttribute="leading" secondItem="vU0-Zi-034" secondAttribute="leadingMargin" id="ruB-5M-eRi"/>
                                             </constraints>
@@ -676,9 +721,6 @@
                             <outlet property="delegate" destination="Xgf-4h-Cef" id="CwE-s9-jpf"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="LiquidHub" id="qen-tn-rze">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="uel-T2-YOg"/>
-                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="clientEmail" destination="twr-7b-ryw" id="Z19-H8-PkB"/>
@@ -699,7 +741,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Mail.png" width="124" height="73"/>
         <image name="call.png" width="626" height="626"/>
         <image name="logo.png" width="1023" height="369"/>
     </resources>

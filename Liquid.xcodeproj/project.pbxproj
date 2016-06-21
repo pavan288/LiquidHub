@@ -23,7 +23,10 @@
 		2780756F1D140DDD00E65DF8 /* AcceleratorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2780756E1D140DDD00E65DF8 /* AcceleratorCell.swift */; };
 		278075741D14199900E65DF8 /* ClientDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278075731D14199900E65DF8 /* ClientDetails.swift */; };
 		278075781D146CA800E65DF8 /* call.png in Resources */ = {isa = PBXBuildFile; fileRef = 278075771D146CA800E65DF8 /* call.png */; };
-		2780757A1D180DD300E65DF8 /* Mail.png in Resources */ = {isa = PBXBuildFile; fileRef = 278075791D180DD200E65DF8 /* Mail.png */; };
+		2780758D1D1816E300E65DF8 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 278075831D18145800E65DF8 /* Charts.framework */; };
+		2780758E1D1816E300E65DF8 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 278075831D18145800E65DF8 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		278075931D1817C400E65DF8 /* ProjectDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278075921D1817C400E65DF8 /* ProjectDetails.swift */; };
+		278075951D1924DC00E65DF8 /* SwiftyAccordionCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278075941D1924DC00E65DF8 /* SwiftyAccordionCells.swift */; };
 		27E0FE7C1D1162D5001B9806 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 27E0FE7B1D1162D5001B9806 /* logo.png */; };
 		27E0FE801D116FA5001B9806 /* SegmentedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E0FE7F1D116FA5001B9806 /* SegmentedView.swift */; };
 		27E0FE821D1174FD001B9806 /* ProjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E0FE811D1174FD001B9806 /* ProjectModel.swift */; };
@@ -75,7 +78,28 @@
 			remoteGlobalIDString = 06AEE7A21BDC3F8B009875AE;
 			remoteInfo = ChartsTests;
 		};
+		2780758F1D1816E300E65DF8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2780757B1D18145400E65DF8 /* Charts.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 5BA8EC3F1A9D14DC00CE82E1;
+			remoteInfo = "Charts-iOS";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		278075911D1816E400E65DF8 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				2780758E1D1816E300E65DF8 /* Charts.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2748EBFC1D12EC080089949D /* ProductTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductTable.swift; sourceTree = "<group>"; };
@@ -100,8 +124,9 @@
 		2780756E1D140DDD00E65DF8 /* AcceleratorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceleratorCell.swift; sourceTree = "<group>"; };
 		278075731D14199900E65DF8 /* ClientDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientDetails.swift; sourceTree = "<group>"; };
 		278075771D146CA800E65DF8 /* call.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = call.png; sourceTree = "<group>"; };
-		278075791D180DD200E65DF8 /* Mail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Mail.png; sourceTree = "<group>"; };
 		2780757B1D18145400E65DF8 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = Liquid/Charts/Charts.xcodeproj; sourceTree = "<group>"; };
+		278075921D1817C400E65DF8 /* ProjectDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectDetails.swift; sourceTree = "<group>"; };
+		278075941D1924DC00E65DF8 /* SwiftyAccordionCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyAccordionCells.swift; sourceTree = "<group>"; };
 		27E0FE7B1D1162D5001B9806 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		27E0FE7F1D116FA5001B9806 /* SegmentedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedView.swift; sourceTree = "<group>"; };
 		27E0FE811D1174FD001B9806 /* ProjectModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectModel.swift; sourceTree = "<group>"; };
@@ -115,6 +140,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2780758D1D1816E300E65DF8 /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,7 +187,6 @@
 			children = (
 				275D786E1D1153E6003654E5 /* AppDelegate.swift */,
 				278075771D146CA800E65DF8 /* call.png */,
-				278075791D180DD200E65DF8 /* Mail.png */,
 				275D78701D1153E6003654E5 /* ViewController.swift */,
 				275D78721D1153E7003654E5 /* Main.storyboard */,
 				275D78781D1153EB003654E5 /* Assets.xcassets */,
@@ -203,6 +228,7 @@
 				27E0FE831D117FE3001B9806 /* ClientModel.swift */,
 				27E0FE851D117FF7001B9806 /* ComponentModel.swift */,
 				27E0FE871D12A146001B9806 /* AcceleratorModel.swift */,
+				278075941D1924DC00E65DF8 /* SwiftyAccordionCells.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -231,6 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				278075731D14199900E65DF8 /* ClientDetails.swift */,
+				278075921D1817C400E65DF8 /* ProjectDetails.swift */,
 			);
 			name = DetailedViiews;
 			sourceTree = "<group>";
@@ -256,10 +283,12 @@
 				275D78671D1153E4003654E5 /* Sources */,
 				275D78681D1153E4003654E5 /* Frameworks */,
 				275D78691D1153E4003654E5 /* Resources */,
+				278075911D1816E400E65DF8 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				278075901D1816E300E65DF8 /* PBXTargetDependency */,
 			);
 			name = Liquid;
 			productName = Liquid;
@@ -387,7 +416,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2780757A1D180DD300E65DF8 /* Mail.png in Resources */,
 				27E0FE7C1D1162D5001B9806 /* logo.png in Resources */,
 				278075781D146CA800E65DF8 /* call.png in Resources */,
 				275D787C1D1153EB003654E5 /* LaunchScreen.storyboard in Resources */,
@@ -422,6 +450,7 @@
 				27E0FE861D117FF7001B9806 /* ComponentModel.swift in Sources */,
 				275D78771D1153EB003654E5 /* Liquid.xcdatamodeld in Sources */,
 				27E0FE821D1174FD001B9806 /* ProjectModel.swift in Sources */,
+				278075951D1924DC00E65DF8 /* SwiftyAccordionCells.swift in Sources */,
 				27E0FE841D117FE3001B9806 /* ClientModel.swift in Sources */,
 				2748EBFD1D12EC090089949D /* ProductTable.swift in Sources */,
 				2780756F1D140DDD00E65DF8 /* AcceleratorCell.swift in Sources */,
@@ -429,6 +458,7 @@
 				275D786F1D1153E6003654E5 /* AppDelegate.swift in Sources */,
 				278075741D14199900E65DF8 /* ClientDetails.swift in Sources */,
 				278075681D14029C00E65DF8 /* ProductCell.swift in Sources */,
+				278075931D1817C400E65DF8 /* ProjectDetails.swift in Sources */,
 				2780756A1D14096F00E65DF8 /* ClientCell.swift in Sources */,
 				2748EBFF1D12EC2F0089949D /* AccTable.swift in Sources */,
 				27E0FE881D12A146001B9806 /* AcceleratorModel.swift in Sources */,
@@ -463,6 +493,11 @@
 			isa = PBXTargetDependency;
 			target = 275D786A1D1153E4003654E5 /* Liquid */;
 			targetProxy = 275D788E1D1153EE003654E5 /* PBXContainerItemProxy */;
+		};
+		278075901D1816E300E65DF8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Charts-iOS";
+			targetProxy = 2780758F1D1816E300E65DF8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -573,6 +608,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Liquid/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.self.Liquid;
@@ -584,6 +620,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Liquid/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.self.Liquid;

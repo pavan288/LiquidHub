@@ -125,7 +125,7 @@ class ClientTableView: UITableViewController {
         }
     } 
     
-    @IBAction func cancelToPlayersViewController(segue:UIStoryboardSegue) {
+    @IBAction func cancelToClientTableView(segue:UIStoryboardSegue) {
     }
 }
 extension ClientTableView: UISearchResultsUpdating {
