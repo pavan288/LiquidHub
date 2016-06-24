@@ -48,8 +48,21 @@ class ClientDetails: UITableViewController {
         
 
     }
-
     
+    private func callNumber(phoneNumber:String) {
+        if let phoneCallURL:NSURL = NSURL(string:"tel://\(phoneNumber)") {
+            let application:UIApplication = UIApplication.sharedApplication()
+            if (application.canOpenURL(phoneCallURL)) {
+                application.openURL(phoneCallURL);
+            }
+        }
+    }
+    
+    @IBAction func callClient(sender: AnyObject) {
+        
+        callNumber(tempPh)
+        
+    }
 
     
 }

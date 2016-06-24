@@ -38,6 +38,7 @@ class AcceleratorTableView: UITableViewController {
         myTableView.tableHeaderView = searchController.searchBar
     }
     
+    //tableview methods
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searchController.active && searchController.searchBar.text != "" {
             return filteredAcc.count
@@ -60,6 +61,8 @@ class AcceleratorTableView: UITableViewController {
         
         return cell
     }
+    
+    //search methods
     func searchDisplayController(controller: UISearchController!, shouldReloadTableForSearchString searchString: String!) -> Bool {
         self.filterContentForSearchText(searchString)
         return true

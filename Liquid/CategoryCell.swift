@@ -11,8 +11,8 @@ import UIKit
 class CategoryCell: UITableViewCell {
 
     @IBOutlet weak var categoryName: UILabel!
-    @IBOutlet weak var subTable: UITableView!
-    var isObserving = false;
+    
+  /*  var isObserving = false;
     
     class var expandedHeight: CGFloat { get { return 200 } }
     class var defaultHeight: CGFloat  { get { return 44  } }
@@ -39,5 +39,5 @@ class CategoryCell: UITableViewCell {
         if keyPath == "frame" {
             checkHeight()
         }
-    }
+    }*/
 }

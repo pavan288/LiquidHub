@@ -14,16 +14,9 @@ class ProductTableView:UITableViewController {
     var filteredProjects = [ProjectModel]()
     var projects = [ProjectModel]()
     let searchController = UISearchController(searchResultsController: nil)
-    let cells = SwiftyAccordionCells()
-    var selectedIndexPath : NSIndexPath?
-    
-    var previouslySelectedHeaderIndex: Int?
-    var selectedHeaderIndex: Int?
-    var selectedItemIndex: Int?
+
     
     @IBOutlet weak var myTableView: UITableView!
-    
-    var Categories = ["Assets & Wealth Managaement","Banking","Commercial","Healthcare","Life Sciences","Insurance"]
     
     override func viewDidLoad() {
         //setup accordion table
@@ -48,67 +41,11 @@ class ProductTableView:UITableViewController {
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         myTableView.tableHeaderView = searchController.searchBar
-    }
-    
-    //custom expandables
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if searchController.active && searchController.searchBar.text != "" {
-            return filteredProjects.count
-        }
-        return Categories.count
-    }
-    
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Category", forIndexPath: indexPath) as! CategoryCell
-        cell.textLabel!.text = Categories[indexPath.row]
-        return cell
-    }
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let previousIndexPath = selectedIndexPath
-        if indexPath == selectedIndexPath {
-            selectedIndexPath = nil
-        } else {
-            selectedIndexPath = indexPath
-        }
-        
-        var indexPaths : Array<NSIndexPath> = []
-        if let previous = previousIndexPath {
-            indexPaths += [previous]
-        }
-        if let current = selectedIndexPath {
-            indexPaths += [current]
-        }
-        if indexPaths.count > 0 {
-            tableView.reloadRowsAtIndexPaths(indexPaths, withRowAnimation: UITableViewRowAnimation.Automatic)
-        }
-    }
-    
-    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        (cell as! CategoryCell).watchFrameChanges()
-    }
-    
-    override func tableView(tableView: UITableView, didEndDisplayingCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        (cell as! CategoryCell).ignoreFrameChanges()
-    }
-    
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-        for cell in tableView.visibleCells as! [CategoryCell] {
-            cell.ignoreFrameChanges()
-        }
-    }
-    
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if indexPath == selectedIndexPath {
-            return CategoryCell.expandedHeight
-        } else {
-            return CategoryCell.defaultHeight
-        }
+        searchController.hidesNavigationBarDuringPresentation = false
     }
     
     
-    
-    /*     //tableview methods
+        //tableview methods
      override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
      if searchController.active && searchController.searchBar.text != "" {
      return filteredProjects.count
@@ -131,99 +68,6 @@ class ProductTableView:UITableViewController {
      
      return cell
      }
-     
-     
-     //setup the table items
-     func setup() {
-     //   self.enter.layer.cornerRadius = 4
-     
-     self.cells.append(SwiftyAccordionCells.HeaderItem(value: "Assets Management"))
-     self.cells.append(SwiftyAccordionCells.Item(value: "Project 1"))
-     self.cells.append(SwiftyAccordionCells.Item(value: "Project 2"))
-     self.cells.append(SwiftyAccordionCells.HeaderItem(value: "Banking"))
-     self.cells.append(SwiftyAccordionCells.Item(value: "Project 1"))
-     self.cells.append(SwiftyAccordionCells.HeaderItem(value: "Commercial"))
-     self.cells.append(SwiftyAccordionCells.Item(value: "Project 1"))
-     self.cells.append(SwiftyAccordionCells.Item(value: "Project 2"))
-     self.cells.append(SwiftyAccordionCells.HeaderItem(value: "HealthCare"))
-     self.cells.append(SwiftyAccordionCells.Item(value: "Project 1"))
-     self.cells.append(SwiftyAccordionCells.Item(value: "Project 2"))
-     self.cells.append(SwiftyAccordionCells.HeaderItem(value: "Life Sciences"))
-     self.cells.append(SwiftyAccordionCells.Item(value: "Project 1"))
-     self.cells.append(SwiftyAccordionCells.Item(value: "Project 2"))
-     self.cells.append(SwiftyAccordionCells.HeaderItem(value: "Insurance"))
-     self.cells.append(SwiftyAccordionCells.Item(value: "Project 1"))
-     self.cells.append(SwiftyAccordionCells.Item(value: "Project 2"))
-     
-     
-     }
-     
-     //setup accordion table view
-     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-     return self.cells.items.count
-     }
-     
-     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-     let item = self.cells.items[indexPath.row]
-     let value = item.value as? String
-     
-     let cell = tableView.dequeueReusableCellWithIdentifier("PCell") as! ProductCell
-     cell.pName?.text = value
-     
-     if item as? SwiftyAccordionCells.HeaderItem != nil {
-     cell.backgroundColor = UIColor.whiteColor()
-     }
-     
-     return cell
-     
-     }
-     
-     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-     let item = self.cells.items[indexPath.row]
-     
-     if item is SwiftyAccordionCells.HeaderItem {
-     return 60
-     } else if (item.isHidden) {
-     return 0
-     } else {
-     return 44
-     }
-     }
-     
-     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-     let item = self.cells.items[indexPath.row]
-     
-     if item is SwiftyAccordionCells.HeaderItem {
-     if self.selectedHeaderIndex == nil {
-     self.selectedHeaderIndex = indexPath.row
-     } else {
-     self.previouslySelectedHeaderIndex = self.selectedHeaderIndex
-     self.selectedHeaderIndex = indexPath.row
-     }
-     
-     if let previouslySelectedHeaderIndex = self.previouslySelectedHeaderIndex {
-     self.cells.collapse(previouslySelectedHeaderIndex)
-     }
-     
-     if self.previouslySelectedHeaderIndex != self.selectedHeaderIndex {
-     self.cells.expand(self.selectedHeaderIndex!)
-     } else {
-     self.selectedHeaderIndex = nil
-     self.previouslySelectedHeaderIndex = nil
-     }
-     
-     self.myTableView.beginUpdates()
-     self.myTableView.endUpdates()
-     
-     }
-     }
-     */
-    
-    
-    
-    
-    
-    
     
     
     //search methods
@@ -239,9 +83,6 @@ class ProductTableView:UITableViewController {
         
         myTableView.reloadData()
     }
-    @IBAction func cancelToTableView(segue:UIStoryboardSegue) {
-    }
-    
     
 }
 extension ProductTableView: UISearchResultsUpdating {
