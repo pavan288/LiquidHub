@@ -8,16 +8,21 @@
 
 import Foundation
 import UIKit
+import SwiftyJSON
 
 class AcceleratorTableView: UITableViewController {
     
     var filteredAcc = [AcceleratorModel]()
     var accelerators = [AcceleratorModel]()
     let searchController = UISearchController(searchResultsController: nil)
+    let urlString = "http://54.169.229.225:8080/LEM/lem/api/login/homePage"
+    var NumberOfRows = 0
     
     @IBOutlet weak var myTableView: UITableView!
     
      override func viewDidLoad() {
+        
+        
         
         accelerators = [
             AcceleratorModel(acceleratorName:"Acc1", acceleratorId: 1),
@@ -36,8 +41,25 @@ class AcceleratorTableView: UITableViewController {
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         myTableView.tableHeaderView = searchController.searchBar
+        
+        parseJSON()
     }
     
+    func parseJSON(){
+        
+        let url = NSURL(string: urlString)
+        let jsonData = try? NSData(contentsOfURL: url!, options: [])
+        let readableJSON = JSON(data: jsonData!, options: NSJSONReadingOptions.MutableContainers, error: nil)
+        NumberOfRows = readableJSON.count
+        let accelerator = AcceleratorModel(acceleratorName: "",acceleratorId: 0)
+
+        
+        for i in 0...(NumberOfRows-1){
+            accelerator.acceleratorName = readableJSON[i]["name"].string! as String
+            accelerator.acceleratorId = readableJSON[i]["id"].int!
+            accelerators.append(AcceleratorModel(acceleratorName: "\(accelerator.acceleratorName)",acceleratorId: accelerator.acceleratorId))
+        }
+    }
     //tableview methods
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searchController.active && searchController.searchBar.text != "" {

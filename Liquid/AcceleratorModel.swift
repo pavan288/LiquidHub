@@ -11,9 +11,9 @@ import Foundation
 class AcceleratorModel{
     
     var acceleratorName: String
-    var acceleratorId: Double
+    var acceleratorId: Int
     
-    init(acceleratorName: String, acceleratorId: Double){
+    init(acceleratorName: String, acceleratorId: Int){
         
         self.acceleratorName = acceleratorName
         self.acceleratorId = acceleratorId

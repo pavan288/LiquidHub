@@ -446,7 +446,7 @@
                                             <outlet property="delegate" destination="rdl-Ft-nfV" id="vkh-dB-MxJ"/>
                                         </connections>
                                     </tableView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ID" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gef-LU-coQ">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tech" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gef-LU-coQ">
                                         <rect key="frame" x="270" y="374" width="42" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="42" id="sFb-5d-xzr"/>

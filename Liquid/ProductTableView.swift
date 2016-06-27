@@ -8,12 +8,15 @@
 
 import Foundation
 import UIKit
+import SwiftyJSON
 
 class ProductTableView:UITableViewController {
     
     var filteredProjects = [ProjectModel]()
     var projects = [ProjectModel]()
     let searchController = UISearchController(searchResultsController: nil)
+    
+ 
 
     
     @IBOutlet weak var myTableView: UITableView!
@@ -43,6 +46,9 @@ class ProductTableView:UITableViewController {
         myTableView.tableHeaderView = searchController.searchBar
         searchController.hidesNavigationBarDuringPresentation = false
     }
+    
+
+    
     
     
         //tableview methods

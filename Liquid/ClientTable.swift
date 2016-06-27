@@ -8,20 +8,23 @@
 
 import Foundation
 import UIKit
+import SwiftyJSON
 
 class ClientTableView: UITableViewController {
     
     var filteredClients = [ClientModel]()
     var clients = [ClientModel]()
     let searchController = UISearchController(searchResultsController: nil)
+    let urlString = "http://54.169.229.225:8080/LEM/lem/api/login/homePage"
+    var NumberOfRows = 0
+ 
     
     @IBOutlet weak var myTableView: UITableView!
     
     override func viewDidLoad() {
     
-        
         clients = [
-            ClientModel(clientName:"client1", clientId: 1, clientPh: "9876543210", clientEmail: "client1@xyz.com", LHProjMgrName: "LHProjectMgr1", LHProjMgrPhone: "9876543210", LHProjMgrEmail: "lhprojmgr1@xyz.com", LHClientMgrName: "LHClientMgr1", LHClientMgrPhone: "9876543210", LHClientMgrEmail: "lhclientmgr1@xyz.com"),
+         /*   ClientModel(clientName:"client1", clientId: 1, clientPh: "9876543210", clientEmail: "client1@xyz.com", LHProjMgrName: "LHProjectMgr1", LHProjMgrPhone: "9876543210", LHProjMgrEmail: "lhprojmgr1@xyz.com", LHClientMgrName: "LHClientMgr1", LHClientMgrPhone: "9876543210", LHClientMgrEmail: "lhclientmgr1@xyz.com"),
             ClientModel(clientName:"client2", clientId: 2, clientPh: "9876543210", clientEmail: "client2@xyz.com", LHProjMgrName: "LHProjectMgr1", LHProjMgrPhone: "9876543210", LHProjMgrEmail: "lhprojmgr1@xyz.com", LHClientMgrName: "LHClientMgr2", LHClientMgrPhone: "9876543210", LHClientMgrEmail: "lhclientmgr2@xyz.com"),
             ClientModel(clientName:"client1", clientId: 3, clientPh: "9876543210", clientEmail: "client3@xyz.com", LHProjMgrName: "LHProjectMgr1", LHProjMgrPhone: "9876543210", LHProjMgrEmail: "lhprojmgr1@xyz.com", LHClientMgrName: "LHClientMgr3", LHClientMgrPhone: "9876543210", LHClientMgrEmail: "lhclientmgr3@xyz.com"),
             ClientModel(clientName:"client2", clientId: 4, clientPh: "9876543210", clientEmail: "client4@xyz.com", LHProjMgrName: "LHProjectMgr1", LHProjMgrPhone: "9876543210", LHProjMgrEmail: "lhprojmgr1@xyz.com", LHClientMgrName: "LHClientMgr4", LHClientMgrPhone: "9876543210", LHClientMgrEmail: "lhclientmgr4@xyz.com"),
@@ -29,14 +32,37 @@ class ClientTableView: UITableViewController {
             ClientModel(clientName:"client2", clientId: 6, clientPh: "9876543210", clientEmail: "client6@xyz.com", LHProjMgrName: "LHProjectMgr1", LHProjMgrPhone: "9876543210", LHProjMgrEmail: "lhprojmgr1@xyz.com", LHClientMgrName: "LHClientMgr6", LHClientMgrPhone: "9876543210", LHClientMgrEmail: "lhclientmgr6@xyz.com"),
             ClientModel(clientName:"client1", clientId: 7, clientPh: "9876543210", clientEmail: "client7@xyz.com", LHProjMgrName: "LHProjectMgr1", LHProjMgrPhone: "9876543210", LHProjMgrEmail: "lhprojmgr1@xyz.com", LHClientMgrName: "LHClientMgr7", LHClientMgrPhone: "9876543210", LHClientMgrEmail: "lhclientmgr7@xyz.com"),
             ClientModel(clientName:"client2", clientId: 8, clientPh: "9876543210", clientEmail: "client8@xyz.com", LHProjMgrName: "LHProjectMgr1", LHProjMgrPhone: "9876543210", LHProjMgrEmail: "lhprojmgr1@xyz.com", LHClientMgrName: "LHClientMgr8", LHClientMgrPhone: "9876543210", LHClientMgrEmail: "lhclientmgr8@xyz.com"),
-            ClientModel(clientName:"client1", clientId: 9, clientPh: "9876543210", clientEmail: "client9@xyz.com", LHProjMgrName: "LHProjectMgr1", LHProjMgrPhone: "9876543210", LHProjMgrEmail: "lhprojmgr1@xyz.com", LHClientMgrName: "LHClientMgr8", LHClientMgrPhone: "9876543210", LHClientMgrEmail: "lhclientmgr8@xyz.com")
+            ClientModel(clientName:"client1", clientId: 9, clientPh: "9876543210", clientEmail: "client9@xyz.com", LHProjMgrName: "LHProjectMgr1", LHProjMgrPhone: "9876543210", LHProjMgrEmail: "lhprojmgr1@xyz.com", LHClientMgrName: "LHClientMgr8", LHClientMgrPhone: "9876543210", LHClientMgrEmail: "lhclientmgr8@xyz.com") */
         ]
         // Setup the Search Controller
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         myTableView.tableHeaderView = searchController.searchBar
+        
+        parseJSON()
     }
+    
+    func parseJSON(){
+        
+        let url = NSURL(string: urlString)
+        let jsonData = try? NSData(contentsOfURL: url!, options: [])
+        let readableJSON = JSON(data: jsonData!, options: NSJSONReadingOptions.MutableContainers, error: nil)
+        NumberOfRows = readableJSON.count
+        let client =  ClientModel(clientName:"client2", clientId: 8, clientPh: "9876543210", clientEmail: "client8@xyz.com", LHProjMgrName: "LHProjectMgr1", LHProjMgrPhone: "9876543210", LHProjMgrEmail: "lhprojmgr1@xyz.com", LHClientMgrName: "LHClientMgr8", LHClientMgrPhone: "9876543210", LHClientMgrEmail: "lhclientmgr8@xyz.com")
+        
+        
+        for i in 0...(NumberOfRows-1){
+            client.clientName = readableJSON[i]["name"].string! as String
+            client.clientId = readableJSON[i]["id"].double!
+            client.clientPh = readableJSON[i]["clientcontact"].string!
+            client.LHProjMgrName = readableJSON[i]["projectmanager"].string!
+            
+            clients.append(ClientModel(clientName:"\(client.clientName)", clientId: client.clientId, clientPh: "\(client.clientPh)", clientEmail: "client8@xyz.com", LHProjMgrName: "\(client.LHClientMgrName)", LHProjMgrPhone: "9876543210", LHProjMgrEmail: "lhprojmgr1@xyz.com", LHClientMgrName: "LHClientMgr8", LHClientMgrPhone: "9876543210", LHClientMgrEmail: "lhclientmgr8@xyz.com"))
+        }
+    }
+    
+
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searchController.active && searchController.searchBar.text != "" {
@@ -81,10 +107,6 @@ class ClientTableView: UITableViewController {
     //segue
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     
-    /*let backItem = UIBarButtonItem()
-    backItem.title = "Back"
-    navigationItem.backBarButtonItem = backItem */
-        
         if segue.identifier == "ClientDetailSegue" {
             let indexPath : NSIndexPath
             if let button = sender as? UIButton {
@@ -92,8 +114,6 @@ class ClientTableView: UITableViewController {
                 indexPath = self.tableView.indexPathForCell(cell)!
             
             let destination = segue.destinationViewController as? ClientDetails
-            
-        //   let selectedRow = self.myTableView.indexPathForSelectedRow!
             var client: ClientModel
             client = clients[indexPath.row]
             
