@@ -58,7 +58,7 @@ class ClientTableView: UITableViewController {
             client.clientPh = readableJSON[i]["clientcontact"].string!
             client.LHProjMgrName = readableJSON[i]["projectmanager"].string!
             
-            clients.append(ClientModel(clientName:"\(client.clientName)", clientId: client.clientId, clientPh: "\(client.clientPh)", clientEmail: "client8@xyz.com", LHProjMgrName: "\(client.LHClientMgrName)", LHProjMgrPhone: "9876543210", LHProjMgrEmail: "lhprojmgr1@xyz.com", LHClientMgrName: "LHClientMgr8", LHClientMgrPhone: "9876543210", LHClientMgrEmail: "lhclientmgr8@xyz.com"))
+            clients.append(ClientModel(clientName:"\(client.clientName)", clientId: client.clientId, clientPh: "\(client.clientPh)", clientEmail: "client8@xyz.com", LHProjMgrName: "\(client.LHProjMgrName)", LHProjMgrPhone: "9876543210", LHProjMgrEmail: "lhprojmgr1@xyz.com", LHClientMgrName: "LHClientMgr8", LHClientMgrPhone: "9876543210", LHClientMgrEmail: "lhclientmgr8@xyz.com"))
         }
     }
     

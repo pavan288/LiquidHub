@@ -259,19 +259,27 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vr1-2X-8dr">
-                                            <rect key="frame" x="11" y="8" width="298" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="21" id="SbV-Av-S3L"/>
-                                            </constraints>
+                                            <rect key="frame" x="11" y="8" width="247" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a11-wp-UFC">
+                                            <rect key="frame" x="266" y="8" width="46" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="Vr1-2X-8dr" firstAttribute="leading" secondItem="lfI-hX-kbD" secondAttribute="leadingMargin" constant="3" id="MCv-TR-6gj"/>
-                                        <constraint firstItem="Vr1-2X-8dr" firstAttribute="top" secondItem="lfI-hX-kbD" secondAttribute="topMargin" id="o6G-TV-pRU"/>
-                                        <constraint firstItem="Vr1-2X-8dr" firstAttribute="centerX" secondItem="lfI-hX-kbD" secondAttribute="centerX" id="ruj-Ct-KLr"/>
+                                        <constraint firstItem="Vr1-2X-8dr" firstAttribute="leading" secondItem="lfI-hX-kbD" secondAttribute="leadingMargin" constant="3" id="2Ic-Ke-7JM"/>
+                                        <constraint firstItem="a11-wp-UFC" firstAttribute="trailing" secondItem="lfI-hX-kbD" secondAttribute="trailingMargin" id="B6R-ao-qNv"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Vr1-2X-8dr" secondAttribute="trailing" constant="54" id="C0F-m5-MQs"/>
+                                        <constraint firstItem="a11-wp-UFC" firstAttribute="leading" secondItem="Vr1-2X-8dr" secondAttribute="trailing" constant="8" symbolic="YES" id="RVs-yp-4he"/>
+                                        <constraint firstItem="a11-wp-UFC" firstAttribute="top" secondItem="Vr1-2X-8dr" secondAttribute="top" id="VCg-QV-TBq"/>
+                                        <constraint firstItem="a11-wp-UFC" firstAttribute="baseline" secondItem="Vr1-2X-8dr" secondAttribute="baseline" id="ZAz-M6-smw"/>
+                                        <constraint firstItem="Vr1-2X-8dr" firstAttribute="top" secondItem="lfI-hX-kbD" secondAttribute="topMargin" id="aPs-BJ-MAP"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Vr1-2X-8dr" secondAttribute="bottom" constant="6" id="cQY-j0-8FQ"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -630,7 +638,7 @@
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8tH-Os-8qA">
                                                     <rect key="frame" x="266" y="7" width="46" height="30"/>
-                                                    <state key="normal" title="Button"/>
+                                                    <state key="normal" title="Call"/>
                                                     <connections>
                                                         <action selector="callClient:" destination="Xgf-4h-Cef" eventType="touchUpInside" id="9Kt-cm-3w6"/>
                                                     </connections>
@@ -639,8 +647,9 @@
                                             <constraints>
                                                 <constraint firstItem="ggX-tg-UaQ" firstAttribute="leading" secondItem="QvC-lb-Lq9" secondAttribute="leadingMargin" id="7Z9-Ts-9mH"/>
                                                 <constraint firstItem="ggX-tg-UaQ" firstAttribute="centerY" secondItem="QvC-lb-Lq9" secondAttribute="centerY" id="RyC-RD-pEM"/>
-                                                <constraint firstItem="8tH-Os-8qA" firstAttribute="baseline" secondItem="ggX-tg-UaQ" secondAttribute="baseline" id="Tuy-Iw-DBA"/>
-                                                <constraint firstItem="8tH-Os-8qA" firstAttribute="trailing" secondItem="QvC-lb-Lq9" secondAttribute="trailingMargin" id="e2u-qf-XwP"/>
+                                                <constraint firstItem="8tH-Os-8qA" firstAttribute="trailing" secondItem="QvC-lb-Lq9" secondAttribute="trailingMargin" id="RyU-6i-H9S"/>
+                                                <constraint firstItem="8tH-Os-8qA" firstAttribute="leading" secondItem="ggX-tg-UaQ" secondAttribute="trailing" constant="85" id="jHn-nF-koL"/>
+                                                <constraint firstItem="8tH-Os-8qA" firstAttribute="baseline" secondItem="ggX-tg-UaQ" secondAttribute="baseline" id="rnk-Sh-RQU"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
@@ -847,6 +856,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="QqU-UX-tCL">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.99991279840000002" green="1" blue="0.99988144639999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" red="0.18823529410000001" green="0.23137254900000001" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="0.9999127984046936" green="1" blue="0.99988144636154175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

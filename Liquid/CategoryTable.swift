@@ -14,6 +14,7 @@ class CategoryTableView:UITableViewController {
     var filteredProjects = [ProjectModel]()
      var projects = [ProjectModel]()
     let searchController = UISearchController(searchResultsController: nil)
+    var selectedCategory: String = ""
     
     
     @IBOutlet weak var myTableView: UITableView!
@@ -21,22 +22,7 @@ class CategoryTableView:UITableViewController {
     var Categories = ["Assets & Wealth Managaement","Banking","Commercial","Healthcare","Life Sciences","Insurance"]
     
      override func viewDidLoad() {
-        //setup accordion table
-    //    self.setup()
-        
-        projects = [
-            ProjectModel(projectName:"Project1", projectId: 1),
-            ProjectModel(projectName:"Project2", projectId: 2),
-            ProjectModel(projectName:"Project1", projectId: 3),
-            ProjectModel(projectName:"Project2", projectId: 4),
-            ProjectModel(projectName:"Project1", projectId: 5),
-            ProjectModel(projectName:"Project2", projectId: 6),
-            ProjectModel(projectName:"Project1", projectId: 7),
-            ProjectModel(projectName:"Project2", projectId: 8),
-            ProjectModel(projectName:"Project1", projectId: 9)
-        ]
-        
-        
+
         
         // Setup the Search Controller
         searchController.searchResultsUpdater = self

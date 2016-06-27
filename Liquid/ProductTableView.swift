@@ -15,26 +15,25 @@ class ProductTableView:UITableViewController {
     var filteredProjects = [ProjectModel]()
     var projects = [ProjectModel]()
     let searchController = UISearchController(searchResultsController: nil)
-    
+    let urlString = "http://54.169.229.225:8080/LEM/lem/api/login/homePage"
+    var NumberOfRows = 0
  
 
     
     @IBOutlet weak var myTableView: UITableView!
     
     override func viewDidLoad() {
-        //setup accordion table
-        //    self.setup()
         
         projects = [
-            ProjectModel(projectName:"Project1", projectId: 1),
-            ProjectModel(projectName:"Project2", projectId: 2),
-            ProjectModel(projectName:"Project1", projectId: 3),
-            ProjectModel(projectName:"Project2", projectId: 4),
-            ProjectModel(projectName:"Project1", projectId: 5),
-            ProjectModel(projectName:"Project2", projectId: 6),
-            ProjectModel(projectName:"Project1", projectId: 7),
-            ProjectModel(projectName:"Project2", projectId: 8),
-            ProjectModel(projectName:"Project1", projectId: 9)
+            ProjectModel(projectName:"Project1", projectId: 1, projectDomain: "Assets & Wealth Management"),
+            ProjectModel(projectName:"Project2", projectId: 2, projectDomain: "Banking"),
+            ProjectModel(projectName:"Project1", projectId: 3, projectDomain: "Commercial"),
+            ProjectModel(projectName:"Project2", projectId: 4, projectDomain: "Insurance"),
+            ProjectModel(projectName:"Project1", projectId: 5, projectDomain: "Healthcare"),
+            ProjectModel(projectName:"Project2", projectId: 6, projectDomain: "Life Sciences"),
+            ProjectModel(projectName:"Project1", projectId: 7, projectDomain: "Healthcare"),
+            ProjectModel(projectName:"Project2", projectId: 8, projectDomain: "Banking"),
+            ProjectModel(projectName:"Project1", projectId: 9, projectDomain: "Insurance")
         ]
         
         
@@ -47,6 +46,22 @@ class ProductTableView:UITableViewController {
         searchController.hidesNavigationBarDuringPresentation = false
     }
     
+    func parseJSON(){
+        
+        let url = NSURL(string: urlString)
+        let jsonData = try? NSData(contentsOfURL: url!, options: [])
+        let readableJSON = JSON(data: jsonData!, options: NSJSONReadingOptions.MutableContainers, error: nil)
+        NumberOfRows = readableJSON.count
+        let project = ProjectModel(projectName: "",projectId: 0, projectDomain: "")
+        
+        
+        for i in 0...(NumberOfRows-1){
+            project.projectName = readableJSON[i]["name"].string! as String
+            project.projectId = readableJSON[i]["id"].double!
+            project.projectDomain = readableJSON[i]["project_domain"].string!
+            projects.append(ProjectModel(projectName: "\(project.projectName)",projectId: project.projectId,projectDomain: project.projectDomain))
+        }
+    }
 
     
     

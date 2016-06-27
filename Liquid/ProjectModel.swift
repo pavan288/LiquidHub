@@ -12,11 +12,13 @@ class ProjectModel{
     
     var projectName: String
     var projectId: Double
+    var projectDomain: String
     
-    init(projectName: String, projectId: Double){
+    init(projectName: String, projectId: Double, projectDomain: String){
         
         self.projectName = projectName
         self.projectId = projectId
+        self.projectDomain = projectDomain
     }
     
 }
