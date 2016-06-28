@@ -41,6 +41,8 @@ class AcceleratorTableView: UITableViewController {
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         myTableView.tableHeaderView = searchController.searchBar
+        searchController.hidesNavigationBarDuringPresentation = false
+
         
         parseJSON()
     }

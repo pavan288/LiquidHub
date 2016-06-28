@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SwiftyJSON
 
 class CategoryTableView:UITableViewController {
     
@@ -15,6 +16,8 @@ class CategoryTableView:UITableViewController {
      var projects = [ProjectModel]()
     let searchController = UISearchController(searchResultsController: nil)
     var selectedCategory: String = ""
+    let urlString = "http://54.169.229.225:8080/LEM/lem/api/login/homePage"
+    var NumberOfRows = 0
     
     
     @IBOutlet weak var myTableView: UITableView!
@@ -22,6 +25,20 @@ class CategoryTableView:UITableViewController {
     var Categories = ["Assets & Wealth Managaement","Banking","Commercial","Healthcare","Life Sciences","Insurance"]
     
      override func viewDidLoad() {
+        
+        parseJSON()
+        
+        projects = [
+            ProjectModel(projectName:"Project1", projectId: 1, projectDomain: "Assets & Wealth Management"),
+            ProjectModel(projectName:"Project2", projectId: 2, projectDomain: "Banking"),
+            ProjectModel(projectName:"Project1", projectId: 3, projectDomain: "Commercial"),
+            ProjectModel(projectName:"Project2", projectId: 4, projectDomain: "Insurance"),
+            ProjectModel(projectName:"Project1", projectId: 5, projectDomain: "Healthcare"),
+            ProjectModel(projectName:"Project2", projectId: 6, projectDomain: "Life Sciences"),
+            ProjectModel(projectName:"Project1", projectId: 7, projectDomain: "Healthcare"),
+            ProjectModel(projectName:"Project2", projectId: 8, projectDomain: "Banking"),
+            ProjectModel(projectName:"Project1", projectId: 9, projectDomain: "Insurance")
+        ]
 
         
         // Setup the Search Controller
@@ -29,6 +46,25 @@ class CategoryTableView:UITableViewController {
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         myTableView.tableHeaderView = searchController.searchBar
+        searchController.hidesNavigationBarDuringPresentation = false
+
+    }
+    
+    func parseJSON(){
+        
+        let url = NSURL(string: urlString)
+        let jsonData = try? NSData(contentsOfURL: url!, options: [])
+        let readableJSON = JSON(data: jsonData!, options: NSJSONReadingOptions.MutableContainers, error: nil)
+        NumberOfRows = readableJSON.count
+        let project = ProjectModel(projectName: "",projectId: 0, projectDomain: "")
+        
+        
+        for i in 0...(NumberOfRows-1){
+            project.projectName = readableJSON[i]["name"].string! as String
+            project.projectId = readableJSON[i]["id"].double!
+            project.projectDomain = readableJSON[i]["project_domain"].string!
+            projects.append(ProjectModel(projectName: "\(project.projectName)",projectId: project.projectId,projectDomain: project.projectDomain))
+        }
     }
     
     
@@ -41,19 +77,21 @@ class CategoryTableView:UITableViewController {
     }
     
      override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Category", forIndexPath: indexPath) as! CategoryCell
-        // var project: ProjectModel
+                 var project: ProjectModel
         
-    //    if searchController.active && searchController.searchBar.text != "" {
-    //        project = filteredProjects[indexPath.row]
-    //        cell.pName.text = project.projectName
-    //    } else {
-     //       project = projects[indexPath.row]
+        if searchController.active && searchController.searchBar.text != "" {
+            let cell = tableView.dequeueReusableCellWithIdentifier("Pcell", forIndexPath: indexPath) 
+            project = filteredProjects[indexPath.row]
+            cell.textLabel?.text = project.projectName
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCellWithIdentifier("Category", forIndexPath: indexPath) as! CategoryCell
             cell.categoryName.text = Categories[indexPath.row]
-     //   }
+            return cell
+        }
         
         
-        return cell
+        
     }
     
     

@@ -23,6 +23,7 @@ class ProductTableView:UITableViewController {
     @IBOutlet weak var myTableView: UITableView!
     
     override func viewDidLoad() {
+        parseJSON()
         
         projects = [
             ProjectModel(projectName:"Project1", projectId: 1, projectDomain: "Assets & Wealth Management"),
