@@ -15,7 +15,6 @@ class ClientTableView: UITableViewController {
     var filteredClients = [ClientModel]()
     var clients = [ClientModel]()
     let searchController = UISearchController(searchResultsController: nil)
-    let urlString = "http://54.169.229.225:8080/LEM/lem/api/login/homePage"
     var NumberOfRows = 0
  
     
@@ -46,23 +45,24 @@ class ClientTableView: UITableViewController {
     }
     
     func parseJSON(){
-        
-        let url = NSURL(string: urlString)
-        let jsonData = try? NSData(contentsOfURL: url!, options: [])
-        let readableJSON = JSON(data: jsonData!, options: NSJSONReadingOptions.MutableContainers, error: nil)
-        NumberOfRows = readableJSON.count
-        let client =  ClientModel(clientName:"client2", clientId: 8, clientPh: "9876543210", clientEmail: "client8@xyz.com", LHProjMgrName: "LHProjectMgr1", LHProjMgrPhone: "9876543210", LHProjMgrEmail: "lhprojmgr1@xyz.com", LHClientMgrName: "LHClientMgr8", LHClientMgrPhone: "9876543210", LHClientMgrEmail: "lhclientmgr8@xyz.com")
-        
-        
-        for i in 0...(NumberOfRows-1){
-            client.clientName = readableJSON[i]["name"].string! as String
-            client.clientId = readableJSON[i]["id"].double!
-            client.clientPh = readableJSON[i]["clientcontact"].string!
-            client.LHProjMgrName = readableJSON[i]["projectmanager"].string!
+        for i in 7...8{
+            let url = NSURL(string: "http://54.169.229.225:8080/LEM/lem/component/api/componentListByProjectId?projectId=\(i)")
+            let jsonData = try? NSData(contentsOfURL: url!, options: [])
+            let readableJSON = JSON(data: jsonData!, options: NSJSONReadingOptions.MutableContainers, error: nil)
+            let client =  ClientModel(clientName:"client2", clientId: 8, clientPh: "9876543210", clientEmail: "client8@xyz.com", LHProjMgrName: "LHProjectMgr1", LHProjMgrPhone: "9876543210", LHProjMgrEmail: "lhprojmgr1@xyz.com", LHClientMgrName: "LHClientMgr8", LHClientMgrPhone: "9876543210", LHClientMgrEmail: "lhclientmgr8@xyz.com")
+            
+            client.clientName = readableJSON[0]["projectDetails"]["client"].string! as String
+            client.clientId = readableJSON[0]["projectDetails"]["id"].double!
+            client.clientPh = readableJSON[0]["projectDetails"]["clientcontact"].string!
+            client.LHProjMgrName = readableJSON[0]["projectDetails"]["projectmanager"].string!
             
             clients.append(ClientModel(clientName:"\(client.clientName)", clientId: client.clientId, clientPh: "\(client.clientPh)", clientEmail: "client8@xyz.com", LHProjMgrName: "\(client.LHProjMgrName)", LHProjMgrPhone: "9876543210", LHProjMgrEmail: "lhprojmgr1@xyz.com", LHClientMgrName: "LHClientMgr8", LHClientMgrPhone: "9876543210", LHClientMgrEmail: "lhclientmgr8@xyz.com"))
         }
     }
+    
+
+    
+
     
 
     

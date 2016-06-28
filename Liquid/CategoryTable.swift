@@ -16,8 +16,8 @@ class CategoryTableView:UITableViewController {
      var projects = [ProjectModel]()
     let searchController = UISearchController(searchResultsController: nil)
     var selectedCategory: String = ""
-    let urlString = "http://54.169.229.225:8080/LEM/lem/api/login/homePage"
     var NumberOfRows = 0
+   
     
     
     @IBOutlet weak var myTableView: UITableView!
@@ -25,20 +25,8 @@ class CategoryTableView:UITableViewController {
     var Categories = ["Assets & Wealth Managaement","Banking","Commercial","Healthcare","Life Sciences","Insurance"]
     
      override func viewDidLoad() {
-        
-        parseJSON()
-        
-        projects = [
-            ProjectModel(projectName:"Project1", projectId: 1, projectDomain: "Assets & Wealth Management"),
-            ProjectModel(projectName:"Project2", projectId: 2, projectDomain: "Banking"),
-            ProjectModel(projectName:"Project1", projectId: 3, projectDomain: "Commercial"),
-            ProjectModel(projectName:"Project2", projectId: 4, projectDomain: "Insurance"),
-            ProjectModel(projectName:"Project1", projectId: 5, projectDomain: "Healthcare"),
-            ProjectModel(projectName:"Project2", projectId: 6, projectDomain: "Life Sciences"),
-            ProjectModel(projectName:"Project1", projectId: 7, projectDomain: "Healthcare"),
-            ProjectModel(projectName:"Project2", projectId: 8, projectDomain: "Banking"),
-            ProjectModel(projectName:"Project1", projectId: 9, projectDomain: "Insurance")
-        ]
+  
+        projects = []
 
         
         // Setup the Search Controller
@@ -47,22 +35,20 @@ class CategoryTableView:UITableViewController {
         definesPresentationContext = true
         myTableView.tableHeaderView = searchController.searchBar
         searchController.hidesNavigationBarDuringPresentation = false
+        
+         parseJSON()
 
     }
     
     func parseJSON(){
-        
-        let url = NSURL(string: urlString)
+        for i in 7...8{
+        let url = NSURL(string: "http://54.169.229.225:8080/LEM/lem/component/api/componentListByProjectId?projectId=\(i)")
         let jsonData = try? NSData(contentsOfURL: url!, options: [])
         let readableJSON = JSON(data: jsonData!, options: NSJSONReadingOptions.MutableContainers, error: nil)
-        NumberOfRows = readableJSON.count
         let project = ProjectModel(projectName: "",projectId: 0, projectDomain: "")
-        
-        
-        for i in 0...(NumberOfRows-1){
-            project.projectName = readableJSON[i]["name"].string! as String
-            project.projectId = readableJSON[i]["id"].double!
-            project.projectDomain = readableJSON[i]["project_domain"].string!
+            project.projectName = readableJSON[0]["projectDetails"]["name"].string! as String
+            project.projectId = readableJSON[0]["projectDetails"]["id"].double!
+            project.projectDomain = readableJSON[0]["projectDetails"]["project_domain"].string!
             projects.append(ProjectModel(projectName: "\(project.projectName)",projectId: project.projectId,projectDomain: project.projectDomain))
         }
     }
@@ -77,7 +63,7 @@ class CategoryTableView:UITableViewController {
     }
     
      override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-                 var project: ProjectModel
+        var project = ProjectModel(projectName: "",projectId: 0, projectDomain: "")
         
         if searchController.active && searchController.searchBar.text != "" {
             let cell = tableView.dequeueReusableCellWithIdentifier("Pcell", forIndexPath: indexPath) 
@@ -87,6 +73,11 @@ class CategoryTableView:UITableViewController {
         } else {
             let cell = tableView.dequeueReusableCellWithIdentifier("Category", forIndexPath: indexPath) as! CategoryCell
             cell.categoryName.text = Categories[indexPath.row]
+            
+            if(cell.categoryName.text == project.projectDomain){
+            cell.categoryCount.text = String(projects.count)
+            }
+        
             return cell
         }
         

@@ -283,6 +283,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="categoryCount" destination="a11-wp-UFC" id="MNu-ul-Uda"/>
                                     <outlet property="categoryName" destination="Vr1-2X-8dr" id="EJr-cv-5A7"/>
                                     <segue destination="SPY-BD-vG7" kind="show" id="dqu-Lm-3D9"/>
                                 </connections>
@@ -433,7 +434,7 @@
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I7o-V0-8pB">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tech" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I7o-V0-8pB">
                                                             <rect key="frame" x="270" y="11" width="42" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -441,13 +442,14 @@
                                                         </label>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="PBr-0K-3dL" firstAttribute="baseline" secondItem="I7o-V0-8pB" secondAttribute="baseline" id="ASh-tr-Y5S"/>
                                                         <constraint firstItem="PBr-0K-3dL" firstAttribute="centerY" secondItem="NEE-2i-5Sa" secondAttribute="centerY" id="H6y-Of-ScK"/>
-                                                        <constraint firstItem="I7o-V0-8pB" firstAttribute="leading" secondItem="PBr-0K-3dL" secondAttribute="trailing" constant="41" id="Qck-rk-N5e"/>
                                                         <constraint firstAttribute="trailing" secondItem="PBr-0K-3dL" secondAttribute="trailing" constant="91" id="TRs-4h-44m"/>
+                                                        <constraint firstItem="I7o-V0-8pB" firstAttribute="baseline" secondItem="PBr-0K-3dL" secondAttribute="baseline" id="c2c-LJ-DJh"/>
                                                         <constraint firstItem="kR0-2g-dcR" firstAttribute="leading" secondItem="NEE-2i-5Sa" secondAttribute="leadingMargin" id="efU-gB-lpt"/>
+                                                        <constraint firstItem="I7o-V0-8pB" firstAttribute="trailing" secondItem="NEE-2i-5Sa" secondAttribute="trailingMargin" id="flo-1g-ATz"/>
                                                         <constraint firstItem="PBr-0K-3dL" firstAttribute="leading" secondItem="kR0-2g-dcR" secondAttribute="trailing" constant="29" id="laz-4Z-hpe"/>
                                                         <constraint firstItem="kR0-2g-dcR" firstAttribute="baseline" secondItem="PBr-0K-3dL" secondAttribute="baseline" id="sQY-uc-rEj"/>
+                                                        <constraint firstItem="I7o-V0-8pB" firstAttribute="leading" secondItem="PBr-0K-3dL" secondAttribute="trailing" constant="41" id="u6V-pT-gcq"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>

@@ -8,6 +8,7 @@
 
 import UIKit
 import Charts
+import SwiftyJSON
 
 class ProjectDetails: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var pieChartView: PieChartView!
@@ -16,10 +17,27 @@ class ProjectDetails: UIViewController, UITableViewDataSource, UITableViewDelega
 
     let components = ["C1", "C2", "C3", "C4", "C5", "C6"]
     let componentDetail = [20.0, 4.0, 6.0, 3.0, 12.0, 16.0]
+    var projects = [ProjectModel]()
     
     override func viewDidLoad() {
         
+        projects = []
+        
         setChart(components, values: componentDetail)
+        parseJSON()
+    }
+    
+    func parseJSON(){
+        for i in 7...8{
+            let url = NSURL(string: "http://54.169.229.225:8080/LEM/lem/component/api/componentListByProjectId?projectId=\(i)")
+            let jsonData = try? NSData(contentsOfURL: url!, options: [])
+            let readableJSON = JSON(data: jsonData!, options: NSJSONReadingOptions.MutableContainers, error: nil)
+            let project = ProjectModel(projectName: "",projectId: 0, projectDomain: "")
+            project.projectName = readableJSON[0]["projectDetails"]["name"].string! as String
+            project.projectId = readableJSON[0]["projectDetails"]["id"].double!
+            project.projectDomain = readableJSON[0]["projectDetails"]["project_domain"].string!
+            projects.append(ProjectModel(projectName: "\(project.projectName)",projectId: project.projectId,projectDomain: project.projectDomain))
+        }
     }
     
     func setChart(dataPoints: [String], values: [Double]) {
@@ -61,6 +79,7 @@ class ProjectDetails: UIViewController, UITableViewDataSource, UITableViewDelega
         
         cell.compName!.text = components[indexPath.row]
         cell.compHours!.text = String(componentDetail[indexPath.row])
+//        cell.compTech!.text = String()
         
         
         return cell

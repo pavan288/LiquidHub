@@ -11,33 +11,6 @@ import UIKit
 class CategoryCell: UITableViewCell {
 
     @IBOutlet weak var categoryName: UILabel!
+    @IBOutlet weak var categoryCount: UILabel!
     
-  /*  var isObserving = false;
-    
-    class var expandedHeight: CGFloat { get { return 200 } }
-    class var defaultHeight: CGFloat  { get { return 44  } }
-    
-    func checkHeight() {
-        subTable.hidden = (frame.size.height < CategoryCell.expandedHeight)
-    }
-    
-    func watchFrameChanges() {
-        if !isObserving {
-            addObserver(self, forKeyPath: "frame", options: [NSKeyValueObservingOptions.New, NSKeyValueObservingOptions.Initial], context: nil)
-            isObserving = true;
-        }
-    }
-    
-    func ignoreFrameChanges() {
-        if isObserving {
-            removeObserver(self, forKeyPath: "frame")
-            isObserving = false;
-        }
-    }
-    
-    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
-        if keyPath == "frame" {
-            checkHeight()
-        }
-    }*/
 }
