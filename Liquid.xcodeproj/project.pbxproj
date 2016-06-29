@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		12CBC0FDF7F26BDCD14FE782 /* Pods_Liquid.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2A9B669DCC28D518BED450E /* Pods_Liquid.framework */; };
 		2748EBFD1D12EC090089949D /* CategoryTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2748EBFC1D12EC080089949D /* CategoryTable.swift */; };
-		2748EBFF1D12EC2F0089949D /* AccTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2748EBFE1D12EC2F0089949D /* AccTable.swift */; };
 		2748EC011D12EC460089949D /* ClientTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2748EC001D12EC460089949D /* ClientTable.swift */; };
 		275D786F1D1153E6003654E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275D786E1D1153E6003654E5 /* AppDelegate.swift */; };
 		275D78711D1153E6003654E5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275D78701D1153E6003654E5 /* ViewController.swift */; };
@@ -21,7 +20,6 @@
 		275D78921D1153EF003654E5 /* LiquidUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275D78911D1153EF003654E5 /* LiquidUITests.swift */; };
 		278075681D14029C00E65DF8 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278075671D14029C00E65DF8 /* ProductCell.swift */; };
 		2780756A1D14096F00E65DF8 /* ClientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278075691D14096F00E65DF8 /* ClientCell.swift */; };
-		2780756F1D140DDD00E65DF8 /* AcceleratorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2780756E1D140DDD00E65DF8 /* AcceleratorCell.swift */; };
 		278075741D14199900E65DF8 /* ClientDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278075731D14199900E65DF8 /* ClientDetails.swift */; };
 		278075781D146CA800E65DF8 /* call.png in Resources */ = {isa = PBXBuildFile; fileRef = 278075771D146CA800E65DF8 /* call.png */; };
 		2780758D1D1816E300E65DF8 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 278075831D18145800E65DF8 /* Charts.framework */; };
@@ -36,7 +34,6 @@
 		27E0FE821D1174FD001B9806 /* ProjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E0FE811D1174FD001B9806 /* ProjectModel.swift */; };
 		27E0FE841D117FE3001B9806 /* ClientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E0FE831D117FE3001B9806 /* ClientModel.swift */; };
 		27E0FE861D117FF7001B9806 /* ComponentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E0FE851D117FF7001B9806 /* ComponentModel.swift */; };
-		27E0FE881D12A146001B9806 /* AcceleratorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E0FE871D12A146001B9806 /* AcceleratorModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,7 +104,6 @@
 
 /* Begin PBXFileReference section */
 		2748EBFC1D12EC080089949D /* CategoryTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTable.swift; sourceTree = "<group>"; };
-		2748EBFE1D12EC2F0089949D /* AccTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccTable.swift; sourceTree = "<group>"; };
 		2748EC001D12EC460089949D /* ClientTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientTable.swift; sourceTree = "<group>"; };
 		275D786B1D1153E5003654E5 /* Liquid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Liquid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		275D786E1D1153E6003654E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -125,7 +121,6 @@
 		275D78931D1153F0003654E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		278075671D14029C00E65DF8 /* ProductCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		278075691D14096F00E65DF8 /* ClientCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientCell.swift; sourceTree = "<group>"; };
-		2780756E1D140DDD00E65DF8 /* AcceleratorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceleratorCell.swift; sourceTree = "<group>"; };
 		278075731D14199900E65DF8 /* ClientDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientDetails.swift; sourceTree = "<group>"; };
 		278075771D146CA800E65DF8 /* call.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = call.png; sourceTree = "<group>"; };
 		2780757B1D18145400E65DF8 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = Liquid/Charts/Charts.xcodeproj; sourceTree = "<group>"; };
@@ -139,7 +134,6 @@
 		27E0FE811D1174FD001B9806 /* ProjectModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectModel.swift; sourceTree = "<group>"; };
 		27E0FE831D117FE3001B9806 /* ClientModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientModel.swift; sourceTree = "<group>"; };
 		27E0FE851D117FF7001B9806 /* ComponentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComponentModel.swift; sourceTree = "<group>"; };
-		27E0FE871D12A146001B9806 /* AcceleratorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceleratorModel.swift; sourceTree = "<group>"; };
 		A7C1F8F15CB6DA2941786FD9 /* Pods-Liquid.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Liquid.release.xcconfig"; path = "Pods/Target Support Files/Pods-Liquid/Pods-Liquid.release.xcconfig"; sourceTree = "<group>"; };
 		B2A9B669DCC28D518BED450E /* Pods_Liquid.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Liquid.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDB2901E73B4446EFEB0B864 /* Pods-Liquid.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Liquid.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Liquid/Pods-Liquid.debug.xcconfig"; sourceTree = "<group>"; };
@@ -241,7 +235,6 @@
 				27E0FE811D1174FD001B9806 /* ProjectModel.swift */,
 				27E0FE831D117FE3001B9806 /* ClientModel.swift */,
 				27E0FE851D117FF7001B9806 /* ComponentModel.swift */,
-				27E0FE871D12A146001B9806 /* AcceleratorModel.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -250,7 +243,6 @@
 			isa = PBXGroup;
 			children = (
 				2748EBFC1D12EC080089949D /* CategoryTable.swift */,
-				2748EBFE1D12EC2F0089949D /* AccTable.swift */,
 				2748EC001D12EC460089949D /* ClientTable.swift */,
 				27AF72A71D196C76005599B9 /* ProductTableView.swift */,
 			);
@@ -262,7 +254,6 @@
 			children = (
 				278075671D14029C00E65DF8 /* ProductCell.swift */,
 				278075691D14096F00E65DF8 /* ClientCell.swift */,
-				2780756E1D140DDD00E65DF8 /* AcceleratorCell.swift */,
 				278075961D1946E900E65DF8 /* CategoryCell.swift */,
 				27AF72AC1D1D2437005599B9 /* ComponentCell.swift */,
 			);
@@ -540,16 +531,13 @@
 				27E0FE841D117FE3001B9806 /* ClientModel.swift in Sources */,
 				2748EBFD1D12EC090089949D /* CategoryTable.swift in Sources */,
 				27AF72AD1D1D2437005599B9 /* ComponentCell.swift in Sources */,
-				2780756F1D140DDD00E65DF8 /* AcceleratorCell.swift in Sources */,
 				2748EC011D12EC460089949D /* ClientTable.swift in Sources */,
 				275D786F1D1153E6003654E5 /* AppDelegate.swift in Sources */,
 				278075741D14199900E65DF8 /* ClientDetails.swift in Sources */,
 				278075681D14029C00E65DF8 /* ProductCell.swift in Sources */,
 				278075931D1817C400E65DF8 /* ProjectDetails.swift in Sources */,
 				2780756A1D14096F00E65DF8 /* ClientCell.swift in Sources */,
-				2748EBFF1D12EC2F0089949D /* AccTable.swift in Sources */,
 				27AF72A81D196C76005599B9 /* ProductTableView.swift in Sources */,
-				27E0FE881D12A146001B9806 /* AcceleratorModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
