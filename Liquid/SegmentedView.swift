@@ -14,7 +14,6 @@ class SegmentedView: UIViewController {
 
    
     @IBOutlet weak var productView: UITableView!
-    @IBOutlet weak var acceleratorView: UITableView!
     @IBOutlet weak var clientView: UITableView!
  
     
@@ -30,12 +29,10 @@ class SegmentedView: UIViewController {
         {
         case 0:
             self.productView.hidden = false
-            self.acceleratorView.hidden = true
             self.clientView.hidden = true
             break
         case 1:
             productView.hidden = true
-            acceleratorView.hidden = true
             clientView.hidden = false
             break
         default:
