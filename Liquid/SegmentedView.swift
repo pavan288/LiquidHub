@@ -35,11 +35,6 @@ class SegmentedView: UIViewController {
             break
         case 1:
             productView.hidden = true
-            acceleratorView.hidden = false
-            clientView.hidden = true
-            break
-        case 2:
-            productView.hidden = true
             acceleratorView.hidden = true
             clientView.hidden = false
             break
