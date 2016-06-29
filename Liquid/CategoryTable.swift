@@ -17,6 +17,8 @@ class CategoryTableView:UITableViewController {
     let searchController = UISearchController(searchResultsController: nil)
     var selectedCategory: String = ""
     var NumberOfRows = 0
+    var filteredCategories = [ProjectModel]()
+    var tempString: String = ""
    
     
     
@@ -37,7 +39,7 @@ class CategoryTableView:UITableViewController {
         searchController.hidesNavigationBarDuringPresentation = false
         
          parseJSON()
-
+        
     }
     
     func parseJSON(){
@@ -62,6 +64,44 @@ class CategoryTableView:UITableViewController {
         return Categories.count
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let indexPath = myTableView.indexPathForSelectedRow!
+       let cell = myTableView.cellForRowAtIndexPath(indexPath)! as! CategoryCell
+        cell.categoryName.text = Categories[indexPath.row]
+        tempString = cell.categoryName.text!
+        
+      switch tempString{
+      case "Assets & Wealth Managaement":
+        self.filterForCategory("Assets & Wealth Managaement")
+        performSegueWithIdentifier("ProductTableSegue", sender: self)
+        break
+      case "Banking":
+        self.filterForCategory("Banking")
+        performSegueWithIdentifier("ProductTableSegue", sender: self)
+        break
+      case "Commercial":
+        self.filterForCategory("Commercial")
+        performSegueWithIdentifier("ProductTableSegue", sender: self)
+        break
+      case "Healthcare":
+        self.filterForCategory("Healthcare")
+        performSegueWithIdentifier("ProductTableSegue", sender: self)
+        break
+      case "Life Sciences":
+        self.filterForCategory("Life Sciences")
+        performSegueWithIdentifier("ProductTableSegue", sender: self)
+        break
+      case "Insurance":
+        self.filterForCategory("Insurance")
+        performSegueWithIdentifier("ProductTableSegue", sender: self)
+        break
+        
+        default:
+            break
+        }
+        
+    }
+    
      override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var project = ProjectModel(projectName: "",projectId: 0, projectDomain: "")
         
@@ -73,16 +113,44 @@ class CategoryTableView:UITableViewController {
         } else {
             let cell = tableView.dequeueReusableCellWithIdentifier("Category", forIndexPath: indexPath) as! CategoryCell
             cell.categoryName.text = Categories[indexPath.row]
-            
-            if(cell.categoryName.text == project.projectDomain){
-            cell.categoryCount.text = String(projects.count)
+            tempString = cell.categoryName.text!
+           
+            // logic for count at end of cell
+            switch tempString {
+            case "Assets & Wealth Managaement":
+                self.filterForCategory("Assets & Wealth Managaement")
+                
+                break
+            case "Banking":
+                self.filterForCategory("Banking")
+                
+                break
+            case "Commercial":
+                self.filterForCategory("Commercial")
+                
+                break
+            case "Healthcare":
+                self.filterForCategory("Healthcare")
+                
+                break
+            case "Life Sciences":
+                self.filterForCategory("Life Sciences")
+                
+                break
+            case "Insurance":
+                self.filterForCategory("Insurance")
+                
+                break
+
+            default:
+              filteredCategories = projects
+                break
             }
-        
+            cell.categoryCount.text = String(filteredCategories.count)
+
             return cell
         }
-        
-        
-        
+   
     }
     
     
@@ -101,8 +169,21 @@ class CategoryTableView:UITableViewController {
     }
     @IBAction func cancelToTableView(segue:UIStoryboardSegue) {
     }
-
- 
+    
+    func filterForCategory(category: String, scope: String = "All"){
+        filteredCategories = projects.filter({ (project: ProjectModel) -> Bool in
+            return project.projectDomain.lowercaseString.containsString(category.lowercaseString)
+        })
+    }
+    
+    
+    //segue
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    
+            let DVC = segue.destinationViewController as? ProductTableView
+            DVC!.tempProjects = filteredCategories
+        }
+    
 }
 extension CategoryTableView: UISearchResultsUpdating {
     func updateSearchResultsForSearchController(searchController: UISearchController) {

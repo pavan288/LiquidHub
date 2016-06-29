@@ -8,18 +8,55 @@
 
 import UIKit
 import Charts
+import SwiftyJSON
 
 class ProjectDetails: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var pieChartView: PieChartView!
 
     @IBOutlet weak var compTableView: UITableView!
+    
+    var projectName: String = ""
 
-    let components = ["C1", "C2", "C3", "C4", "C5", "C6"]
-    let componentDetail = [20.0, 4.0, 6.0, 3.0, 12.0, 16.0]
+    var components = [String]()
+    var componentDetail = [Double]()
+    var componentsTech = [String]()
     
     override func viewDidLoad() {
-        
+        parseJSON()
         setChart(components, values: componentDetail)
+    }
+    
+    func parseJSON(){
+        if projectName == "Subaru"{
+                let url = NSURL(string: "http://54.169.229.225:8080/LEM/lem/component/api/componentListByProjectId?projectId=8")
+                let jsonData = try? NSData(contentsOfURL: url!, options: [])
+                let readableJSON = JSON(data: jsonData!, options: NSJSONReadingOptions.MutableContainers, error: nil)
+                let component = ComponentModel(componentName: "", componentId: 0, compHours: 0, techUsed: "")
+            for i in 0...(readableJSON.count-1){
+                component.componentName = readableJSON[i]["name"].string! as String
+                component.componentId = readableJSON[i]["newComponent"].double!
+                component.compHours = readableJSON[i]["totalHours"].double!
+                component.techUsed = readableJSON[i]["technology"].string!
+                components.append(component.componentName)
+                componentDetail.append(component.compHours)
+                componentsTech.append(component.techUsed)
+            }
+        }else if projectName == "InsPro"{
+            let url = NSURL(string: "http://54.169.229.225:8080/LEM/lem/component/api/componentListByProjectId?projectId=7")
+            let jsonData = try? NSData(contentsOfURL: url!, options: [])
+            let readableJSON = JSON(data: jsonData!, options: NSJSONReadingOptions.MutableContainers, error: nil)
+            let component = ComponentModel(componentName: "", componentId: 0, compHours: 0, techUsed: "")
+            for i in 0...readableJSON.count-1{
+            component.componentName = readableJSON[i]["name"].string! as String
+            component.componentId = readableJSON[i]["newComponent"].double!
+            component.compHours = readableJSON[i]["totalHours"].double!
+            component.techUsed = readableJSON[i]["technology"].string!
+            components.append(component.componentName)
+            componentDetail.append(component.compHours)
+            componentsTech.append(component.techUsed)
+            }
+        }
+        
     }
     
     func setChart(dataPoints: [String], values: [Double]) {
@@ -61,6 +98,7 @@ class ProjectDetails: UIViewController, UITableViewDataSource, UITableViewDelega
         
         cell.compName!.text = components[indexPath.row]
         cell.compHours!.text = String(componentDetail[indexPath.row])
+        cell.compTech!.text = componentsTech[indexPath.row]
         
         
         return cell

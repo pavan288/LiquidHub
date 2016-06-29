@@ -15,5 +15,6 @@ class ComponentCell: UITableViewCell {
     @IBOutlet weak var compHours: UILabel!
     @IBOutlet weak var compID: UILabel!
     
+    @IBOutlet weak var compTech: UILabel!
 
 }

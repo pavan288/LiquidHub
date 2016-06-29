@@ -44,8 +44,7 @@ class ClientDetails: UITableViewController {
         clientMgrName.text = tempClientMgrName
         clientMgrPhone.text = tempClientMgrPhone
         clientMgrEmail.text = tempClientMgrEmail
-        
-        
+       
 
     }
     

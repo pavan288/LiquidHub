@@ -285,7 +285,6 @@
                                 <connections>
                                     <outlet property="categoryCount" destination="a11-wp-UFC" id="MNu-ul-Uda"/>
                                     <outlet property="categoryName" destination="Vr1-2X-8dr" id="EJr-cv-5A7"/>
-                                    <segue destination="SPY-BD-vG7" kind="show" id="dqu-Lm-3D9"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Pcell" id="bdV-FU-wpk">
@@ -305,11 +304,12 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="myTableView" destination="YyJ-8N-Rch" id="8FX-tf-oQj"/>
+                        <segue destination="SPY-BD-vG7" kind="show" identifier="ProductTableSegue" id="6hB-iC-d6E"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Guu-Ys-IR1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1911" y="387"/>
+            <point key="canvasLocation" x="1902" y="387"/>
         </scene>
         <!--Product Table View-->
         <scene sceneID="vA7-cZ-oH6">
@@ -346,8 +346,8 @@
                                                 <color key="titleColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
                                             <connections>
+                                                <action selector="DetailsPressed:" destination="SPY-BD-vG7" eventType="touchUpInside" id="YZ9-mf-9QU"/>
                                                 <action selector="pDetails:" destination="fro-Ya-Sm3" eventType="touchUpInside" id="SAj-Pl-rp1"/>
-                                                <segue destination="rdl-Ft-nfV" kind="show" id="5ao-oM-ltP"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -362,6 +362,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="pName" destination="0JM-FO-V7l" id="RzC-AX-skT"/>
+                                    <segue destination="rdl-Ft-nfV" kind="show" identifier="ProjectDetailSegue" id="RuH-y4-1ga"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -456,6 +457,7 @@
                                                     <outlet property="compHours" destination="PBr-0K-3dL" id="J1f-0N-Bir"/>
                                                     <outlet property="compID" destination="I7o-V0-8pB" id="i2G-Ov-ZoP"/>
                                                     <outlet property="compName" destination="kR0-2g-dcR" id="lK7-E8-oAa"/>
+                                                    <outlet property="compTech" destination="I7o-V0-8pB" id="E9h-ia-MfS"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>

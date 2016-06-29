@@ -13,15 +13,18 @@ import SwiftyJSON
 class ProductTableView:UITableViewController {
     
     var filteredProjects = [ProjectModel]()
+    var tempProjects = [ProjectModel]()
     var projects = [ProjectModel]()
     let searchController = UISearchController(searchResultsController: nil)
-    var NumberOfRows = 0
+    var currentProject: String = ""
+    
+    
  
 
     @IBOutlet weak var myTableView: UITableView!
     
     override func viewDidLoad() {
-        projects = []
+        projects = tempProjects
         
         // Setup the Search Controller
         searchController.searchResultsUpdater = self
@@ -30,21 +33,9 @@ class ProductTableView:UITableViewController {
         myTableView.tableHeaderView = searchController.searchBar
         searchController.hidesNavigationBarDuringPresentation = false
         
-         parseJSON()
     }
+
     
-    func parseJSON(){
-        for i in 7...8{
-            let url = NSURL(string: "http://54.169.229.225:8080/LEM/lem/component/api/componentListByProjectId?projectId=\(i)")
-            let jsonData = try? NSData(contentsOfURL: url!, options: [])
-            let readableJSON = JSON(data: jsonData!, options: NSJSONReadingOptions.MutableContainers, error: nil)
-            let project = ProjectModel(projectName: "",projectId: 0, projectDomain: "")
-            project.projectName = readableJSON[0]["projectDetails"]["name"].string! as String
-            project.projectId = readableJSON[0]["projectDetails"]["id"].double!
-            project.projectDomain = readableJSON[0]["projectDetails"]["project_domain"].string!
-            projects.append(ProjectModel(projectName: "\(project.projectName)",projectId: project.projectId,projectDomain: project.projectDomain))
-        }
-    }
     
         //tableview methods
      override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -65,10 +56,18 @@ class ProductTableView:UITableViewController {
      project = projects[indexPath.row]
      cell.pName.text = project.projectName
      }
-     
-     
      return cell
      }
+    
+/*    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let indexPath = myTableView.indexPathForSelectedRow!
+        let cell = myTableView.cellForRowAtIndexPath(indexPath)! as! ProductCell
+        var project: ProjectModel
+        project = projects[indexPath.row]
+        cell.pName.text = project.projectName
+        currentProject = cell.pName.text!
+ 
+    }*/
     
     
     //search methods
@@ -84,6 +83,33 @@ class ProductTableView:UITableViewController {
         
         myTableView.reloadData()
     }
+    
+    
+ 
+    @IBAction func DetailsPressed(sender: AnyObject) {
+        var indexPath: NSIndexPath!
+        
+        if let button = sender as? UIButton {
+            if let superview = button.superview {
+                if let cell = superview.superview as? ProductCell {
+                    indexPath = myTableView.indexPathForCell(cell)
+                    var project: ProjectModel
+                    project = projects[indexPath.row]
+                   currentProject = project.projectName
+                }
+            }
+        }
+        
+        performSegueWithIdentifier("ProjectDetailSegue", sender: self)
+    }
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+            let DVC = segue.destinationViewController as? ProjectDetails
+            DVC!.projectName = currentProject
+    }
+
+    
     
 }
 extension ProductTableView: UISearchResultsUpdating {
