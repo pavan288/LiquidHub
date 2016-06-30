@@ -583,11 +583,12 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="8tH-Os-8qA" firstAttribute="baseline" secondItem="ggX-tg-UaQ" secondAttribute="baseline" id="4nf-2Q-fOy"/>
                                                 <constraint firstItem="ggX-tg-UaQ" firstAttribute="leading" secondItem="QvC-lb-Lq9" secondAttribute="leadingMargin" id="7Z9-Ts-9mH"/>
+                                                <constraint firstItem="8tH-Os-8qA" firstAttribute="trailing" secondItem="QvC-lb-Lq9" secondAttribute="trailingMargin" id="K1d-qj-an6"/>
+                                                <constraint firstItem="8tH-Os-8qA" firstAttribute="leading" secondItem="ggX-tg-UaQ" secondAttribute="trailing" constant="85" id="M0J-bA-4wX"/>
                                                 <constraint firstItem="ggX-tg-UaQ" firstAttribute="centerY" secondItem="QvC-lb-Lq9" secondAttribute="centerY" id="RyC-RD-pEM"/>
-                                                <constraint firstItem="8tH-Os-8qA" firstAttribute="trailing" secondItem="QvC-lb-Lq9" secondAttribute="trailingMargin" id="RyU-6i-H9S"/>
-                                                <constraint firstItem="8tH-Os-8qA" firstAttribute="leading" secondItem="ggX-tg-UaQ" secondAttribute="trailing" constant="85" id="jHn-nF-koL"/>
-                                                <constraint firstItem="8tH-Os-8qA" firstAttribute="baseline" secondItem="ggX-tg-UaQ" secondAttribute="baseline" id="rnk-Sh-RQU"/>
+                                                <constraint firstItem="8tH-Os-8qA" firstAttribute="trailing" secondItem="QvC-lb-Lq9" secondAttribute="trailingMargin" id="xeZ-9i-odx"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
@@ -658,6 +659,13 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhp-zS-27n">
+                                                    <rect key="frame" x="266" y="7" width="46" height="30"/>
+                                                    <state key="normal" title="Call"/>
+                                                    <connections>
+                                                        <action selector="callProjMgr:" destination="Xgf-4h-Cef" eventType="touchUpInside" id="Zgw-Yv-gRL"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="jhT-pX-Amc" firstAttribute="leading" secondItem="lSB-3d-VUS" secondAttribute="leadingMargin" id="1d9-1p-m1a"/>
@@ -731,6 +739,13 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YPH-SA-WRZ">
+                                                    <rect key="frame" x="266" y="7" width="46" height="30"/>
+                                                    <state key="normal" title="Call"/>
+                                                    <connections>
+                                                        <action selector="callClientMgr:" destination="Xgf-4h-Cef" eventType="touchUpInside" id="E9D-6J-IPQ"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="eEV-GY-Yw2" firstAttribute="centerY" secondItem="T09-49-VRO" secondAttribute="centerY" id="9aJ-73-2cf"/>

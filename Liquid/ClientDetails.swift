@@ -63,5 +63,13 @@ class ClientDetails: UITableViewController {
         
     }
 
+    @IBAction func callClientMgr(sender: AnyObject) {
+        callNumber(tempClientMgrPhone)
+    }
+    
+
+    @IBAction func callProjMgr(sender: AnyObject) {
+        callNumber(tempProjMgrPhone)
+    }
     
 }
