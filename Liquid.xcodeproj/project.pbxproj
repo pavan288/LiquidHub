@@ -194,8 +194,8 @@
 				275D786E1D1153E6003654E5 /* AppDelegate.swift */,
 				275D78701D1153E6003654E5 /* ViewController.swift */,
 				275D78721D1153E7003654E5 /* Main.storyboard */,
-				275D78781D1153EB003654E5 /* Assets.xcassets */,
 				275D787A1D1153EB003654E5 /* LaunchScreen.storyboard */,
+				275D78781D1153EB003654E5 /* Assets.xcassets */,
 				275D787D1D1153EC003654E5 /* Info.plist */,
 				27E0FE7B1D1162D5001B9806 /* logo.png */,
 				275D78751D1153EA003654E5 /* Liquid.xcdatamodeld */,
@@ -689,6 +689,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = edu.self.Liquid.test1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -705,6 +706,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = edu.self.Liquid.test1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

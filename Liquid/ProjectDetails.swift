@@ -71,6 +71,8 @@ class ProjectDetails: UIViewController, UITableViewDataSource, UITableViewDelega
         let pieChartDataSet = PieChartDataSet(yVals: dataEntries, label: "Components")
         let pieChartData = PieChartData(xVals: dataPoints, dataSet: pieChartDataSet)
         pieChartView.data = pieChartData
+        pieChartData.setValueTextColor(UIColor.blackColor())
+        pieChartView.drawHoleEnabled = false
         
         pieChartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
         
