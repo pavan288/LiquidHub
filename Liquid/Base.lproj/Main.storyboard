@@ -54,7 +54,7 @@
                                             <color key="titleColor" red="0.9999127984046936" green="1" blue="0.99988144636154175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="Uwj-88-0OT" kind="show" id="IKR-qg-rt7"/>
+                                            <segue destination="Uwj-88-0OT" kind="show" id="ozz-TO-JMv"/>
                                         </connections>
                                     </button>
                                 </subviews>
